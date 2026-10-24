@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI问询生成Define-XML</title>
+  <style>
+    :root {
+      --primary:#FFEAA7; --secondary:#74B9FF; --accent:#A8E6CF; --danger:#FFB7B2;
+      --success:#81C784; --bg:#FFF8F0; --text-dark:#2D3436; --text-light:#636E72;
+      --border:#DFE6E9; --warning:#FFB74D;
+      --shadow:0 8px 25px rgba(45,52,54,0.10);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,"Microsoft YaHei","Trebuchet MS",sans-serif;
+      color:var(--text-dark); line-height:1.7; overflow-x:hidden;
+      background:linear-gradient(135deg,var(--bg) 0%,#F0E6D2 100%); min-height:100vh; }
+    .page { max-width:min(1560px,95vw); margin:0 auto; padding:14px clamp(14px,1.4vw,22px) 26px; }
+
+    /* 顶部导航 */
+    .deck-nav { position:sticky; top:0; z-index:100; display:flex; justify-content:space-between; align-items:center;
+      gap:12px; margin-bottom:14px; padding:10px 18px; border-radius:16px; background:#fff;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08); border-bottom:3px solid var(--border); }
+    .deck-title { font-size:clamp(15px,1.15vw,18px); color:var(--secondary); font-weight:800; white-space:nowrap; }
+    .deck-links { display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end; }
+    .deck-links a { text-decoration:none; color:var(--text-dark); background:#EAF3FF; padding:5px 10px;
+      border-radius:999px; font-size:clamp(10.5px,0.78vw,12px); line-height:1.35; font-weight:700; white-space:nowrap;
+      border-bottom:3px solid transparent; transition:all .3s ease; }
+    .deck-links a:hover { background:var(--primary); color:var(--text-dark); }
+    .deck-links a { cursor:pointer; }
+    .deck-links a.active { background:var(--secondary); color:#fff; border-bottom-color:#FF6B6B;
+      box-shadow:0 4px 12px rgba(116,185,255,0.3); }
+
+    /* 幻灯片：SPA 切换，只显示当前页 */
+    .slide { display:none; align-items:stretch; }
+    .slide.active { display:flex; min-height:calc(100vh - 128px); animation:fadeIn .45s ease; }
+    .panel { width:100%; background:#fff; border:1px solid var(--border); border-radius:22px; box-shadow:var(--shadow);
+      overflow:hidden; }
+
+    /* 底部翻页控制 */
+    .deck-ctrl { display:flex; justify-content:center; align-items:center; gap:14px; margin-top:18px; }
+    .deck-ctrl button { cursor:pointer; background:#fff; color:var(--secondary); font-weight:800;
+      border:1px solid var(--border); border-radius:999px; padding:9px 20px; font-size:14px; transition:all .3s ease;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+    .deck-ctrl button:hover:not(:disabled) { background:var(--secondary); color:#fff; transform:translateY(-2px); }
+    .deck-ctrl button:disabled { opacity:0.4; cursor:not-allowed; }
+    .deck-ctrl .counter { font-weight:700; color:var(--text-light); font-size:14px; min-width:70px; text-align:center; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-20px); } }
+
+    /* 封面 / 结尾 hero */
+    .hero { padding:clamp(28px,3vw,48px); display:grid; gap:clamp(14px,1.5vw,20px); align-content:center;
+      position:relative; overflow:hidden;
+      background:linear-gradient(135deg,#74B9FF 0%,#A8E6CF 100%); color:#fff; }
+    .hero::after { content:""; position:absolute; top:-45%; right:-8%; width:300px; height:300px; border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%); animation:float 6s ease-in-out infinite; }
+    .hero .eyebrow { color:rgba(255,255,255,0.9); }
+    .hero .lead { color:rgba(255,255,255,0.95); text-shadow:0 1px 2px rgba(0,0,0,0.12); }
+
+    .shell { padding:clamp(20px,2.1vw,32px); display:grid; gap:clamp(11px,1.15vw,16px); align-content:start; }
+    .eyebrow { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--secondary); font-weight:700; }
+    h1,h2,h3 { margin:0; }
+    h1 { font-size:clamp(34px,4.3vw,58px); line-height:1.04; letter-spacing:-0.02em; max-width:860px; color:#fff;
+      text-shadow:2px 2px 4px rgba(0,0,0,0.12); position:relative; z-index:1; }
+    h2 { font-size:clamp(16.5px,1.35vw,21px); margin-bottom:8px; color:var(--secondary); }
+    h3 { font-size:clamp(15.5px,1.25vw,19px); color:var(--secondary); }
+    .lead { max-width:820px; font-size:clamp(15px,1.15vw,18px); line-height:1.65; }
+    .quote { padding:clamp(13px,1.3vw,19px); border-radius:14px; border-left:5px solid var(--secondary);
+      font-size:clamp(14px,1.08vw,17px); line-height:1.6;
+      color:var(--text-dark); background:linear-gradient(135deg,#EAF3FF 0%,#E8F9F0 100%); position:relative; z-index:1; }
+    .chip-row { display:flex; flex-wrap:wrap; align-items:center; gap:9px; position:relative; z-index:1; }
+    .chip { flex:0 0 auto; padding:7px 14px; border-radius:999px; background:rgba(255,255,255,0.28); color:#fff;
+      font-size:clamp(12px,0.92vw,13px); font-weight:700; white-space:nowrap;
+      border:1px solid rgba(255,255,255,0.4); }
+
+    /* 指标卡 */
+    .metric-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(10px,1vw,14px); position:relative; z-index:1; }
+    .metric-card { padding:clamp(12px,1.2vw,18px); border-radius:14px; text-align:center; color:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.10);
+      transition:all .3s ease; background:linear-gradient(135deg,var(--primary) 0%,var(--danger) 100%); }
+    .metric-card:nth-child(2) { background:linear-gradient(135deg,var(--secondary) 0%,var(--accent) 100%); }
+    .metric-card:nth-child(3) { background:linear-gradient(135deg,var(--accent) 0%,#52B788 100%); }
+    .metric-card:nth-child(4) { background:linear-gradient(135deg,var(--warning) 0%,var(--danger) 100%); }
+    .metric-card:hover { transform:translateY(-8px); box-shadow:0 10px 28px rgba(0,0,0,0.16); }
+    .metric-card .label { font-size:12px; text-transform:uppercase; letter-spacing:0.06em; font-weight:700; opacity:0.95; }
+    .metric-card .value { margin-top:6px; font-size:clamp(23px,2.1vw,32px); font-weight:800; line-height:1.15; }
+    .metric-card .sub { font-size:12px; opacity:0.92; margin-top:4px; }
+
+    /* 内容页头 */
+    .slide-head { display:flex; justify-content:space-between; align-items:flex-end; gap:16px; }
+    .slide-no { font-size:clamp(32px,3.3vw,50px); line-height:1; color:rgba(116,185,255,0.24); font-weight:800; }
+    .slide-title { font-size:clamp(23px,2.7vw,38px); line-height:1.08; color:var(--text-dark); font-weight:800; }
+    .slide-lead { color:var(--text-light); font-size:clamp(13.5px,1.03vw,16px); max-width:none; line-height:1.65; }
+
+    /* 栅格 */
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:clamp(12px,1.25vw,18px); }
+    .three-col { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,1.25vw,18px); }
+    .four-col { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(11px,1.15vw,16px); }
+
+    /* 卡片 */
+    .box { padding:clamp(13px,1.35vw,19px); border-radius:14px; background:#fff; border:1px solid var(--border); border-left:5px solid var(--secondary);
+      box-shadow:0 4px 15px rgba(0,0,0,0.06); transition:all .3s ease; }
+    .box:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.12); }
+    .box p { margin:0; line-height:1.6; font-size:clamp(13px,1vw,15px); color:var(--text-light); }
+    .box h2, .box h3 { color:var(--secondary); }
+    .box .big { font-size:30px; font-weight:800; color:var(--text-dark); display:block; margin:4px 0 6px; }
+    ul { margin:0; padding-left:17px; font-size:clamp(13px,1vw,15px); }
+    li + li { margin-top:5px; }
+    .closing { padding:10px 14px; border-left:4px solid var(--accent); background:#EEFBF4; border-radius:10px;
+      color:#3a6b5c; font-size:clamp(13px,1vw,15px); margin-top:4px; }
+
+    /* 三栏"问题→方案→结果"配色 */
+    .box.prob { border-left-color:var(--danger); }
+    .box.prob h2, .box.prob h3 { color:#E07A73; }
+    .box.sol { border-left-color:var(--secondary); }
+    .box.res { border-left-color:var(--success); }
+    .box.res h2, .box.res h3 { color:#4C9A5E; }
+
+    /* 宽松版式：用于内容少、需要留白的页面（slide 02 / 08 / 11） */
+    .shell.roomy { align-content:center; gap:clamp(16px,1.8vw,26px); padding:clamp(26px,2.8vw,44px); }
+    .shell.roomy .two-col,
+    .shell.roomy .three-col { gap:clamp(16px,1.8vw,26px); }
+    .shell.roomy .box { padding:clamp(18px,2vw,28px); border-radius:16px; }
+    .shell.roomy .box h2 { font-size:clamp(18px,1.55vw,24px); margin-bottom:12px; }
+    .shell.roomy .box p { font-size:clamp(14px,1.12vw,16.5px); line-height:1.85; }
+    .shell.roomy ul { font-size:clamp(14px,1.12vw,16.5px); line-height:1.8; padding-left:20px; }
+    .shell.roomy li + li { margin-top:10px; }
+    .shell.roomy .slide-lead { font-size:clamp(14px,1.1vw,17px); line-height:1.8; }
+    .shell.roomy .quote { padding:clamp(16px,1.6vw,22px); font-size:clamp(15px,1.15vw,18px); line-height:1.75; }
+    .shell.roomy .term { padding:14px 18px; font-size:clamp(13px,1.02vw,15px); line-height:1.75; }
+    .shell.roomy .closing { padding:14px 18px; font-size:clamp(14px,1.08vw,16px); line-height:1.7; margin-top:10px; }
+
+    /* OID 引用树（slide 02） */
+    .oid-tree { padding:clamp(12px,1.3vw,18px) clamp(10px,1.2vw,16px); border-radius:16px;
+      background:linear-gradient(135deg,#F7FBFF 0%,#F2FBF6 100%); border:1px solid var(--border);
+      box-shadow:0 4px 15px rgba(0,0,0,0.05); }
+    .oid-tree .oid-cap { text-align:center; font-size:clamp(12.5px,1vw,15px); color:var(--text-light);
+      margin-bottom:6px; line-height:1.5; }
+    .oid-tree .oid-cap b { color:var(--secondary); }
+    .oid-tree svg { display:block; width:100%; height:auto; max-height:46vh; }
+
+    /* 术语提示卡 */
+    .term { padding:10px 14px; border-radius:12px; background:#FFF7E6; border-left:4px solid var(--warning);
+      color:#8a6d3b; font-size:clamp(12px,0.93vw,14px); line-height:1.6; }
+    .term b { color:#B26A00; }
+
+    /* 问询卡 */
+    .q-card { padding:clamp(13px,1.35vw,18px); border-radius:14px; background:#fff; border:1px solid var(--border); border-left:5px solid var(--secondary);
+      box-shadow:0 4px 15px rgba(0,0,0,0.06); transition:all .3s ease; }
+    .q-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(0,0,0,0.12); }
+    .q-no { font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--secondary); font-weight:800; margin-bottom:10px; }
+
+    /* 流程步骤 */
+    .process-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(10px,1.05vw,14px); }
+    .process-step { padding:clamp(12px,1.25vw,17px); border-radius:14px; border-left:4px solid var(--secondary);
+      font-size:clamp(12.5px,0.98vw,14.5px); transition:all .3s ease;
+      background:linear-gradient(135deg,#F0F4F8 0%,#E8F5E9 100%); }
+    .process-step:hover { transform:translateX(8px); box-shadow:0 4px 12px rgba(116,185,255,0.2); }
+    .process-step strong { display:block; color:var(--secondary); margin-bottom:8px; }
+
+    /* 表格 */
+    table { width:100%; border-collapse:collapse; font-size:clamp(12.5px,0.97vw,14px); }
+    th,td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+    th { color:#fff; background:var(--secondary); font-weight:700; }
+    thead th:first-child { border-radius:8px 0 0 0; }
+    thead th:last-child { border-radius:0 8px 0 0; }
+    tbody tr { transition:background .2s ease; }
+    tbody tr:hover { background:#F5F9FF; }
+    td.win { color:#2f8f4e; font-weight:700; }
+
+    .highlight { background:linear-gradient(120deg,var(--primary) 0%,transparent 100%); padding:0.1em 0.35em; border-radius:4px; font-weight:700; }
+
+    /* 完整流程图（可交互） */
+    .flow-wrap { display:grid; gap:clamp(12px,1.3vw,18px); margin-top:4px; }
+    .flow-chart { display:flex; flex-wrap:nowrap; align-items:stretch; justify-content:center; gap:5px; }
+    .flow-node { position:relative; cursor:pointer; flex:1 1 0; min-width:0; max-width:200px; padding:clamp(10px,1.1vw,15px) 10px;
+      border-radius:14px; text-align:center; background:linear-gradient(135deg,#F0F4F8 0%,#E8F5E9 100%);
+      border:2px solid transparent; border-top:4px solid var(--secondary); box-shadow:0 4px 12px rgba(0,0,0,0.06);
+      transition:all .3s ease; }
+    .flow-node:hover { transform:translateY(-6px); box-shadow:0 10px 24px rgba(116,185,255,0.25); }
+    .flow-node.active { border-color:var(--secondary); background:linear-gradient(135deg,#EAF3FF 0%,#D6F5E3 100%);
+      box-shadow:0 10px 28px rgba(116,185,255,0.35); transform:translateY(-4px); }
+    .flow-node .fn-step { position:absolute; top:8px; right:10px; font-size:11px; font-weight:800; color:rgba(116,185,255,0.55); }
+    .flow-node .fn-ico { font-size:clamp(19px,1.7vw,25px); line-height:1; }
+    .flow-node .fn-title { font-weight:800; color:var(--secondary); margin-top:6px; font-size:clamp(12.5px,1.03vw,15px); line-height:1.25; }
+    .flow-node .fn-sub { font-size:clamp(10px,0.76vw,11.5px); color:var(--text-light); margin-top:3px; line-height:1.35; }
+    .flow-arrow { display:flex; align-items:center; justify-content:center; color:var(--secondary); font-size:20px;
+      font-weight:800; flex:0 0 16px; }
+    .flow-detail { padding:clamp(14px,1.5vw,20px); border-radius:16px; background:linear-gradient(135deg,#EAF3FF 0%,#E8F9F0 100%);
+      border-left:5px solid var(--secondary); box-shadow:0 4px 15px rgba(0,0,0,0.06); animation:fadeIn .35s ease; }
+    .flow-detail h3 { display:flex; align-items:center; gap:9px; margin-bottom:9px; color:var(--secondary); }
+    .flow-detail .fd-row { display:grid; grid-template-columns:72px 1fr; gap:12px; padding:6px 0;
+      border-bottom:1px dashed rgba(116,185,255,0.35); }
+    .flow-detail .fd-row:last-child { border-bottom:none; }
+    .flow-detail .fd-key { font-weight:800; color:var(--secondary); font-size:clamp(12px,0.95vw,14px); }
+    .flow-detail .fd-val { color:var(--text-dark); line-height:1.6; font-size:clamp(12.5px,0.98vw,14.5px); }
+    .flow-detail .fd-val code { background:rgba(255,255,255,0.75); padding:1px 5px; border-radius:4px; font-size:13px; }
+    .flow-detail .fd-note { color:#3a6b5c; background:#EEFBF4; border-left:3px solid var(--accent);
+      border-radius:8px; padding:8px 12px; }
+    .flow-hint { font-size:clamp(11.5px,0.9vw,13px); color:var(--text-light); text-align:center; }
+
+    /* 练习环节 */
+    .quiz-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:clamp(10px,1.05vw,14px); }
+    .quiz-card { padding:clamp(11px,1.15vw,15px) clamp(13px,1.3vw,17px); border-radius:14px; background:#fff; border:1px solid var(--border);
+      border-left:5px solid var(--warning); cursor:pointer; transition:all .3s ease; }
+    .quiz-card:hover { transform:translateY(-4px); box-shadow:0 8px 22px rgba(0,0,0,0.10); }
+    .quiz-q { font-weight:800; color:var(--text-dark); display:flex; gap:9px; align-items:flex-start;
+      line-height:1.45; font-size:clamp(12.5px,0.98vw,14.5px); }
+    .quiz-q .badge { flex:0 0 auto; background:var(--warning); color:#fff; border-radius:999px; padding:2px 11px;
+      font-size:12px; font-weight:800; }
+    .quiz-a { max-height:0; overflow:hidden; opacity:0; color:var(--text-light); line-height:1.6; font-size:clamp(12px,0.94vw,13.5px);
+      transition:max-height .35s ease, opacity .3s ease, margin .35s ease; }
+    .quiz-card.open .quiz-a { max-height:320px; opacity:1; margin-top:10px; }
+    .quiz-a .ans-tag { color:var(--success); font-weight:800; }
+    .quiz-hint { font-size:12px; color:var(--secondary); margin-top:8px; font-weight:700; }
+    .quiz-card.open .quiz-hint { display:none; }
+    .quiz-card.wide.open .quiz-a { max-height:460px; }
+
+    /* 幻灯片内嵌的互动提问块 */
+    .interact-block { margin-top:4px; }
+    .interact-head { display:flex; align-items:center; gap:8px; font-size:clamp(12px,0.95vw,14px);
+      font-weight:800; color:var(--warning); letter-spacing:0.02em; margin-bottom:8px; }
+    .interact-head .src { font-weight:700; color:var(--text-light); font-size:0.9em; }
+
+    /* 流程图在窄屏改为纵向堆叠 */
+    @media (max-width:1100px) {
+      .flow-chart { flex-wrap:wrap; }
+      .flow-node { flex:1 1 150px; }
+    }
+    @media (max-width:980px) {
+      .metric-grid,.two-col,.three-col,.four-col,.process-strip,.quiz-grid { grid-template-columns:1fr; }
+      .deck-nav { position:static; flex-direction:column; align-items:flex-start; }
+      .slide.active { min-height:auto; }
+      .flow-chart { flex-direction:column; align-items:stretch; }
+      .flow-node { max-width:none; }
+      .flow-arrow { transform:rotate(90deg); flex:0 0 22px; }
+      .flow-detail .fd-row { grid-template-columns:1fr; gap:2px; }
+    }
+    @media (max-width:640px) { .page { padding:14px; } .shell,.hero { padding:22px; } h1 { font-size:40px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav class="deck-nav">
+      <div class="deck-title">🧬 AI问询生成Define-XML</div>
+      <div class="deck-links">
+        <a href="#slide-1">01 开场</a><a href="#slide-2">02 什么是Define</a><a href="#slide-3">03 传统方式</a><a href="#slide-4">04 传统痛点</a><a href="#slide-5">05 为什么用AI</a><a href="#slide-6">06 完整流程图</a><a href="#slide-7">07 现场演示</a><a href="#slide-8">08 人机分工</a><a href="#slide-9">09 模块协作</a><a href="#slide-10">10 方案优势</a><a href="#slide-11">11 总结</a><a href="#slide-12">12 思考环节</a><a href="#slide-13">13 实操练习</a><a href="#slide-14">14 致谢</a>
+      </div>
+    </nav>
+
+    <section class="slide active" id="slide-1"><article class="panel hero"><div class="eyebrow">Slide 01</div><h1>AI问询生成<br/>Define-XML</h1><div class="chip-row"><span class="chip">先理解</span><span class="chip">再问询</span><span class="chip">后生成校验</span></div><div class="metric-grid"><div class="metric-card"><div class="label">Datasets</div><div class="value">34</div><div class="sub">数据集（域）</div></div><div class="metric-card"><div class="label">Variables</div><div class="value">670</div><div class="sub">变量定义</div></div><div class="metric-card"><div class="label">CodeLists</div><div class="value">150</div><div class="sub">受控术语表</div></div><div class="metric-card"><div class="label">WhereClauses</div><div class="value">254</div><div class="sub">值级筛选条件</div></div></div><div class="quote">不是让 AI 直接写 XML，而是先把需求问清楚，再交给程序稳定生成。</div></article></section>
+
+    <section class="slide" id="slide-2"><article class="panel shell roomy"><div class="slide-head"><div><div class="eyebrow">Slide 02 · 打好基础</div><div class="slide-title">先搞懂：Define-XML 是什么</div></div><div class="slide-no">02</div></div><div class="three-col"><section class="box sol"><h2>它是什么</h2><p>一份随临床试验数据一起递交的<b>"数据说明书"</b>，用标准 XML 格式写成。它逐一描述：数据里有哪些数据集、每个变量是什么含义、值从哪来、按什么规则取值。</p></section><section class="box"><h2>为什么要做它</h2><p>审评员拿到的是成百上千列数据，光看数据本身看不懂。Define-XML 就像一张<b>"导览地图"</b>：告诉他们每个变量什么意思、怎么算出来的、对应 CRF 的哪一页，让数据可读、可核。</p></section><section class="box prob"><h2>做不好会怎样</h2><p>它是 CDISC 标准和监管递交的<b>硬性要求</b>。缺失或有错（比如引用断链），递交很可能被退回返工——所以它必须又准又完整。</p></section></div><div class="oid-tree"><div class="oid-cap">它本质上是一棵<b>引用密集的树</b>：全靠一套 <b>OID</b> 把节点互相挂住</div><svg viewBox="0 0 1060 320" role="img" aria-label="Define-XML OID 引用关系树"><defs><marker id="oidArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#9aa6ad"/></marker></defs><g fill="none" stroke="#9aa6ad" stroke-width="2" marker-end="url(#oidArrow)"><path d="M170,160 L246,160"/><path d="M400,160 C442,160 438,40 476,40"/><path d="M400,160 C442,160 438,120 476,120"/><path d="M400,160 C442,160 438,200 476,200"/><path d="M400,160 C442,160 438,280 476,280"/><path d="M632,280 L756,280"/></g><g font-family="inherit" font-weight="800" fill="#74B9FF" font-size="12" text-anchor="middle"><text x="208" y="150">引用</text><text x="694" y="270">引用</text></g><g><rect x="20" y="137" width="150" height="46" rx="12" fill="#EAF3FF" stroke="#74B9FF" stroke-width="2"/><text x="95" y="158" text-anchor="middle" font-family="inherit" font-weight="800" font-size="14.5" fill="#2D3436">ItemGroupDef</text><text x="95" y="175" text-anchor="middle" font-family="inherit" font-size="11.5" fill="#636E72">数据集 / 域</text></g><g><rect x="250" y="137" width="150" height="46" rx="12" fill="#EAF3FF" stroke="#74B9FF" stroke-width="2"/><text x="325" y="158" text-anchor="middle" font-family="inherit" font-weight="800" font-size="14.5" fill="#2D3436">ItemDef</text><text x="325" y="175" text-anchor="middle" font-family="inherit" font-size="11.5" fill="#636E72">变量</text></g><g><rect x="476" y="17" width="154" height="46" rx="12" fill="#E8F9F0" stroke="#81C784" stroke-width="2"/><text x="553" y="38" text-anchor="middle" font-family="inherit" font-weight="800" font-size="14.5" fill="#2D3436">CodeList</text><text x="553" y="55" text-anchor="middle" font-family="inherit" font-size="11.5" fill="#636E72">受控术语</text></g><g><rect x="476" y="97" width="154" height="46" rx="12" fill="#FFF3E0" stroke="#FFB74D" stroke-width="2"/><text x="553" y="118" text-anchor="middle" font-family="inherit" font-weight="800" font-size="14.5" fill="#2D3436">MethodDef</text><text x="553" y="135" text-anchor="middle" font-family="inherit" font-size="11.5" fill="#636E72">算法 / 取值规则</text></g><g><rect x="476" y="177" width="154" height="46" rx="12" fill="#FFF0F3" stroke="#FFB7B2" stroke-width="2"/><text x="553" y="198" text-anchor="middle" font-family="inherit" font-weight="800" font-size="14.5" fill="#2D3436">CommentDef</text><text x="553" y="215" text-anchor="middle" font-family="inherit" font-size="11.5" fill="#636E72">注释说明</text></g><g><rect x="476" y="257" width="154" height="46" rx="12" fill="#EAF6FF" stroke="#74B9FF" stroke-width="2"/><text x="553" y="278" text-anchor="middle" font-family="inherit" font-weight="800" font-size="14.5" fill="#2D3436">ValueListDef</text><text x="553" y="295" text-anchor="middle" font-family="inherit" font-size="11.5" fill="#636E72">值级清单（VLM）</text></g><g><rect x="756" y="257" width="172" height="46" rx="12" fill="#FDEDEA" stroke="#FF9A8B" stroke-width="2"/><text x="842" y="278" text-anchor="middle" font-family="inherit" font-weight="800" font-size="14.5" fill="#2D3436">WhereClauseDef</text><text x="842" y="295" text-anchor="middle" font-family="inherit" font-size="11.5" fill="#636E72">值级筛选条件</text></g></svg></div><div class="term">📖 <b>三个新词先记住：</b><b>域 / 数据集</b>＝一类数据的表，如 AE（不良事件）、DM（人口学）；<b>变量</b>＝表里的一列；<b>受控术语（CodeList）</b>＝某个变量允许填哪些值的清单。后面反复会用到。</div><div class="closing">一句话：Define-XML 是让别人"看得懂你数据"的说明书，也是合规递交的入场券。</div></article></section>
+
+    <section class="slide" id="slide-3"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 03</div><div class="slide-title">先看传统方式怎么做</div></div><div class="slide-no">03</div></div><div class="two-col"><section class="box"><h2>路线 A：metadata file + P21</h2><p>人工整理好元数据表，导入 <b>Pinnacle 21</b> 工具，由工具生成 define.xml 并同步做合规校验。</p></section><section class="box"><h2>路线 B：metadata file + SAS</h2><p>人工整理好元数据表，再用 <b>SAS 程序</b>读取并拼装输出 define.xml。</p></section></div><div class="quote">注意两条路的<b>前半段完全一样</b>：都必须先有一份人工整理好的 metadata file——人工补齐三层规则（研究级 → 共享级 → 域级），差别只在后半段"谁来生成"。</div><section class="box res"><h2>它的优点</h2><ul><li>规则稳定时效率高，结构清晰、可复查</li><li>P21 路线自带合规校验，SAS 路线灵活可定制</li><li>适合成熟项目反复复用</li></ul><div class="closing">AI 不是要替代这两条路，而是补足它们前面最费人的那段"整理"。</div></section><div class="term">📖 <b>三个名词：</b><b>元数据（metadata）</b>＝不是试验数据本身，而是"关于数据的说明"（某变量叫什么、什么类型、取值范围、怎么算的）；<b>metadata file</b>＝人工维护的元数据表，通常是 Excel，逐行写清每个变量；<b>P21（Pinnacle 21）</b>＝行业常用的 CDISC 合规校验与 define 生成工具。</div></article></section>
+
+    <section class="slide" id="slide-4"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 04</div><div class="slide-title">传统方式的痛点在哪</div></div><div class="slide-no">04</div></div><div class="quote">这一步极其耗 <b>FTE</b>：要通读 spec、IG、SAP 等多份文件，逐个变量、逐个值级手工填表，还要跨角色反复对齐和返工。成本和风险几乎全集中在这里。</div><div class="three-col"><section class="box prob"><h2>需求碎</h2><ul><li>规则散落在 spec、CDISC IG、SAP、共识文件等多处</li><li>前端整理吃掉大量 FTE</li><li>反复对齐，整理成本高</li></ul></section><section class="box prob"><h2>值级复杂</h2><ul><li>一个变量在不同条件下取值不同，条件多、容易漏</li><li>说明容易前后不一致</li><li>一旦漏了或错了，就得返工重来</li></ul></section><section class="box prob"><h2>沟通反复</h2><ul><li>探索性分析的衍生规则容易反复</li><li>多角色沟通，理解容易有偏差</li><li>来回确认 → 多次返工，拖慢进度</li></ul></section></div><div class="term">📖 <b>这些名词是啥：</b><b>FTE</b>＝全职人力当量，衡量一件事要占掉多少人力；<b>Spec</b>＝specification file 标准数据集说明书（定义每个变量长什么样）；<b>CDISC IG</b>＝CDISC 的实施指南（行业标准规则）；<b>SAP</b>＝统计分析计划。规则分散在它们里面，正是"需求碎"的根源。</div><div class="closing">所以 AI 要解决的，正是这段"需求整理 + 反复修订"的闭环，而不是替换后面成熟的 P21 或 SAS 生成器。</div></article></section>
+
+    <section class="slide" id="slide-5"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 05</div><div class="slide-title">为什么用 AI 来做这段</div></div><div class="slide-no">05</div></div><div class="three-col"><section class="box sol"><h2>AI 能做</h2><ul><li>快速读懂代码及各种文件</li><li>把复杂需求拆成层次</li><li>整理出该改哪些点</li></ul></section><section class="box prob"><h2>AI 不替代</h2><ul><li>研究口径的最终确认</li><li>业务上的最终拍板</li><li>用 P21 等工具做的合规校验（是否符合 CDISC 递交标准）</li></ul></section><section class="box res"><h2>带来的价值</h2><ul><li>先理解、再生成，不盲写</li><li>边问边改，快速对齐</li><li>需求更快收敛落地</li></ul></section></div></article></section>
+
+    <section class="slide" id="slide-6"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 06 · 核心机制</div><div class="slide-title">AI 制作 Define 的完整流程</div></div><div class="slide-no">06</div></div>
+    <div class="quote">🧩 <b>底层框架：<code>build_define_v2.ipynb</code></b>——本次 AI 问询生成 define 的全部流水线都跑在这个 notebook 里。AI 负责读懂它、按三层问询把规则问清、改对 YAML；notebook 负责把 YAML 稳定编译成 define.xml 并自检。</div>
+    <div class="flow-wrap">
+      <div class="flow-chart" id="flowChart"></div>
+      <div class="flow-detail" id="flowDetail"></div>
+      <p class="flow-hint">💡 点击任意节点，展开该步的输入 / 动作 / 产出 / 要点。最后一个环节"迭代闭环"会带着自检发现的缺口回到"三层问询"，形成一个可追溯的循环。</p>
+    </div>
+    <div class="closing">两条铁律：<span class="highlight">source-of-truth 永远是 YAML</span>；<span class="highlight">改内容就改 YAML</span>，别手改 define.xml——手改会在下次编译时被覆盖。</div><div class="term">📖 <b>YAML</b>：一种人也读得懂、机器也能解析的文本配置格式。本方案用它来存放元数据——比 XML 好读好改，是我们真正维护的"源"。</div><div class="interact-block"><div class="interact-head">🙋 想一想 &amp; 试一试</div><div class="quiz-card wide" onclick="this.classList.toggle('open')"><div class="quiz-q"><span>中间层为什么用 YAML，不用 JSON？</span></div><div class="quiz-a"><span class="ans-tag">参考答案：</span>这层要给人看、要人审、还要 AI 反复读写，YAML 更合适：可读性好、能写注释（方便标溯源）、diff 清爽好 review。标准 JSON 不支持注释（JSONC、JSON5 等方言才行，但已不是标准 JSON），更适合机器传输而非人机共同维护。</div><div class="quiz-hint">▸ 点击展开参考答案</div></div></div></article></section>
+
+    <section class="slide" id="slide-7"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 07 · Live Demo</div><div class="slide-title">现场演示：从问询到生成</div></div><div class="slide-no">07</div></div>
+    <video controls preload="metadata" style="width:100%;border-radius:14px;border:1px solid var(--border);box-shadow:var(--shadow);background:#000;">
+      <source src="../demo/demo.mp4" type="video/mp4" />
+      你的浏览器暂不支持内嵌视频，请直接打开 <code>../demo/demo.mp4</code> 播放。
+    </video>
+    <div class="three-col">
+      <section class="box"><h3>① 打开源</h3><p>展示 datasets/*.yaml、codelists.yaml——那份好读好改的"源"。</p></section>
+      <section class="box"><h3>② AI 改一处</h3><p>让 AI 修改某个 method / comment，定位到具体 yaml 并改好。</p></section>
+      <section class="box"><h3>③ 一键重编译</h3><p>跑 build_define_v2，约 20 秒重新生成 define.xml。</p></section>
+    </div>
+    <div class="closing">高光时刻：自检自动标出 16 处源数据缺口——生成时就暴露，不用等递交后被退回。</div></article></section>
+
+
+    <section class="slide" id="slide-8"><article class="panel shell roomy"><div class="slide-head"><div><div class="eyebrow">Slide 08</div><div class="slide-title">人和 AI 怎么分工</div></div><div class="slide-no">08</div></div><div class="two-col"><section class="box sol"><h2>AI 更适合</h2><ul><li>理解现有结构</li><li>把问题拆分成层次</li><li>归纳出冲突点</li><li>重写生成用的材料</li></ul></section><section class="box res"><h2>人必须负责</h2><ul><li>研究口径的确认</li><li>共享规则能否复用的判断</li><li>变量和值级的定稿</li><li>业务正确性的最终背书</li></ul><div class="closing">AI 提高效率，但不替代把关的责任。</div></section></div></article></section>
+
+    <section class="slide" id="slide-9"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 09</div><div class="slide-title">模块解耦 · 多人协作与审核</div></div><div class="slide-no">09</div></div><div class="three-col"><section class="box"><h3>🧱 独立模块</h3><ul><li>aCRF 页码 <code>acrf.yaml</code></li><li>计算方法 <code>methods.yaml</code></li><li>注释 <code>comments.yaml</code></li><li>codelist <code>codelists.yaml</code></li><li>各域文件 <code>datasets/*.yaml</code></li></ul></section><section class="box"><h3>👥 分工协作</h3><ul><li>按模块分支并行推进</li><li>责任到人、互不阻塞</li><li>codelist / 方法可跨域复用</li><li>域文件各自独立维护</li></ul></section><section class="box"><h3>🔍 变更可审</h3><ul><li>每次改动都能 <code>diff</code> 对比</li><li>PR 审核、留痕可追溯</li><li>升版一处改、处处生效</li><li>知识沉淀不散落在个人手里</li></ul></section></div><div class="term">📖 <b>Git / diff / PR</b>：Git 是版本管理工具，diff 能逐行看出改了什么，PR（合并请求）让改动在合入前先由他人复核。三者合起来，让改动"看得见、可审核、可回溯"。</div><div class="closing">各模块进 Git，按模块分支并行、逐条 diff 审核——责任到人，变更可追溯。</div></article></section>
+
+    <section class="slide" id="slide-10"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 10</div><div class="slide-title">这样做好在哪</div></div><div class="slide-no">10</div></div><div class="three-col"><section class="box res"><h3>更快</h3><p>分钟级出片，过去要好几个人天。</p></section><section class="box res"><h3>更准</h3><p>OID 自动生成，打错字、漏连的断链从根上消除。</p></section><section class="box res"><h3>数据对得上</h3><p>codelist和筛选条件都按真实数据来，不写数据里没有的东西。</p></section><section class="box res"><h3>好改 · 可协作</h3><p>各模块独立成 YAML，进 Git 可多人分工、互相审核。</p></section><section class="box res"><h3>可复用</h3><p>部门词典建一次，项目按需取子集，升版一处改处处生效。</p></section><section class="box res"><h3>会自检</h3><p>缺方法 / 注释等缺口生成即暴露，不等递交后被退回。</p></section></div><div class="closing">双语一个开关切换中 / 英；人只做判断，机械的活交给引擎。</div></article></section>
+
+    <section class="slide" id="slide-11"><article class="panel shell roomy"><div class="slide-head"><div><div class="eyebrow">Slide 11</div><div class="slide-title">最后总结：解决了什么</div></div><div class="slide-no">11</div></div><div class="two-col"><section class="box sol"><h2>解决的痛点</h2><ul><li>更快问清碎片化的需求</li><li>把多轮口头沟通变成结构化修订</li><li>让规则更快落到 YAML</li></ul></section><section class="box res"><h2>一句话收束</h2><div class="quote">AI 帮人更快理解需求、问清问题、改对元数据，再由程序稳定生成 define.xml。</div></section></div></article></section>
+
+    <section class="slide" id="slide-12"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 12 · Q&amp;A</div><div class="slide-title">思考环节：想一想 &amp; 试一试</div></div><div class="slide-no">12</div></div>
+    <div class="quiz-grid" id="quizGrid"></div>
+</article></section>
+
+    <section class="slide" id="slide-13"><article class="panel shell"><div class="slide-head"><div><div class="eyebrow">Slide 13 · Hands-on</div><div class="slide-title">实操练习：自己跑通一次完整闭环</div></div><div class="slide-no">13</div></div>
+    <div class="three-col">
+      <section class="box"><h3>① 配好路径</h3><ul><li>把项目复制到自己的 folder</li><li>打开 <code>config.yaml</code></li><li>核对 <code>sdtm_dir</code>（xpt / acrf.pdf 目录）</li><li>核对 <code>dept_dir</code> / <code>study_dir</code></li><li>确认 <code>study_files</code> 里 spec / codelist / aCRF 文件名对得上</li></ul></section>
+      <section class="box"><h3>② 跑出 define.xml</h3><ul><li>打开 <code>build_define_v2.ipynb</code></li><li>选好 Python 环境（kernel）</li><li>Run All，按 6 步流水线执行</li><li>约 20 秒生成 <code>define.xml</code></li><li>浏览器打开 define.xml 看渲染效果</li></ul></section>
+      <section class="box"><h3>③ AI 问询改一处</h3><ul><li>选一个想改的点：method / comment / codelist</li><li>问 AI：这个内容在哪个 yaml？</li><li>让 AI 定位并修改对应 <code>datasets/*.yaml</code> 或共享级 yaml</li><li>重新 Run 编译</li><li>对比 <code>diff</code> 确认只改了目标处</li></ul></section>
+    </div>
+    <div class="two-col" style="margin-top:2px;">
+      <section class="box" style="border-left-color:var(--warning);"><h3>🎯 试试这些改动</h3><ul><li>把某个变量的 Label / Comment 改一句更清楚的说明</li><li>给某个 method 补一段计算逻辑描述</li><li>调整某个 codelist 的取值或解码文本</li><li>改完记得：<span class="highlight">改 YAML，别手改 define.xml</span></li></ul></section>
+      <section class="box" style="border-left-color:var(--success);"><h3>✅ 完成标准</h3><ul><li>define.xml 成功生成、能正常打开</li><li>自检无新增断链 / OID 冲突</li><li>目标内容按预期改动，其余不受影响</li><li>能说清：这次改的"源"是哪个 yaml</li></ul></section>
+    </div>
+    <div class="closing">卡住很正常——先回到问题："我要改的这条，源在哪个 yaml？"定位对了，剩下就是改一处、重编译、看 diff。</div></article></section>
+
+    <section class="slide" id="slide-14"><article class="panel hero"><div class="eyebrow">Slide 14</div><h1>谢谢聆听<br/>欢迎提问</h1><p class="lead">AI问询生成Define-XML 的核心，不是替代生成器，而是把前端需求整理、问询修订和重生成校验，串成一条更稳定、可追溯的闭环。</p><div class="chip-row"><span class="chip">先理解</span><span class="chip">问询修改</span><span class="chip">结构化落地</span><span class="chip">生成校验</span></div></article></section>
+    <div class="deck-ctrl">
+      <button id="prevBtn">‹ 上一页</button>
+      <span class="counter" id="counter">1 / 14</span>
+      <button id="nextBtn">下一页 ›</button>
+    </div>
+  </div>
+
+  <script>
+    // 完整流程图：点击节点查看详情
+    (function(){
+      var flowData = [
+        { icon:'🔍', title:'理解上下文', sub:'读脚本 / YAML / 数据',
+          input:'底层框架 <code>build_define_v2.ipynb</code>、<code>config.yaml</code>、<code>study.yaml</code>、共享级 YAML（codelists / methods / comments）、<code>datasets/*.yaml</code>、真实 <code>.xpt</code> 数据',
+          action:'AI 动手前先"读材料"：读懂 notebook 怎么把 define 拼出来，再逐层看现有 YAML，判断<br/>· 真正的源（source-of-truth）在哪<br/>· 哪些规则 / 结构可直接复用<br/>· 哪些点还需要追问',
+          output:'一份带边界的上下文认知：知道"从哪来、哪能复用、还缺什么"',
+          note:'就像新人接手项目前先摸清情况——先建立上下文，再进入问询，不打无准备的仗。' },
+        { icon:'❓', title:'三层问询', sub:'研究 → 共享 → 域',
+          input:'上一步得到的上下文与缺口清单',
+          action:'先大后小、按三层顺序提问：<br/>· <b>研究级</b>先定边界——研究身份、用哪版标准、要输出哪些范围<br/>· <b>共享级</b>识别哪些 codelist / 方法 / 注释能跨多个域复用，避免重复确认<br/>· <b>域级</b>再抠细节——变量、主键、来源、值级逻辑（如 TA / TE / TI / TS）',
+          output:'一份由粗到细、结构化的待确认问题清单',
+          note:'关键不在问题多，而在顺序对：先定边界，再填细节——顺序错了就要返工。' },
+        { icon:'✏️', title:'修改确认', sub:'多轮收敛',
+          input:'用户对问询的回答与补充说明',
+          action:'逐轮收缩范围：按上一轮的回答缩小问题面，把口头 / 模糊的描述改写成结构化、可执行的规则，边问边改',
+          output:'达成一致、可直接执行的规则集合',
+          note:'不是一次到位。每一轮都比上一轮更清楚、更可靠；有分歧就继续追问、继续修订。' },
+        { icon:'📄', title:'落地 YAML', sub:'研究 / 共享 / 域',
+          input:'源文件自动抽取出的三层 YAML ＋ 问询确认后的规则',
+          action:'三层 YAML <b>大部分不是手写的</b>，而是程序从源文件自动抽取；AI 问询只在其上补缺、修正、确认：<br/>· <b>研究级</b> <code>study.yaml</code> ← <code>config.yaml</code> 配置 ＋ 问询确认的研究口径<br/>· <b>共享级</b> <code>codelists / methods / comments.yaml</code> ← 部门标准库 <code>.xlsx</code> 自动抽取 ＋ 问询补缺<br/>· <b>域级</b> <code>datasets/*.yaml</code> ← 规格书 <code>.xlsx</code> ＋ 真实数据 <code>.xpt</code> ＋ aCRF <code>.pdf</code> 自动抽取 ＋ 问询修正',
+          output:'好读好改、可进 Git、可多人协作的"源"（source-of-truth）',
+          note:'铁律：改内容就改 YAML，别手改 define.xml——手改会在下次编译时被覆盖。' },
+        { icon:'⚙️', title:'编译生成', sub:'build_define_v2 · 6 步',
+          input:'三层 YAML 源',
+          action:'<code>build_define_v2.ipynb</code> 按 6 步自动拼装：<br/>① 读配置（文件放哪、出中英、研究号）<br/>② 抽标准库（CDISC 大 Excel → 通用"词典"YAML）<br/>③ 读项目材料（aCRF 页码、项目自有 codelist）<br/>④ 建各域 YAML（规格书 ＋ 真实 xpt ＋ 词典）<br/>⑤ 聚合项目层（挑出各域实际用到的 codelist / 方法 / 注释）<br/>⑥ 编译拼 OID、连交叉引用',
+          output:'define.xml（实测约 20 秒），编号与交叉引用全部自动生成',
+          note:'可以把 define.xml 当成"编译出来的产物"，YAML 才是源代码——就像代码被编译成可执行文件。' },
+        { icon:'✅', title:'自检校验', sub:'OID / 引用 / 缺口',
+          input:'刚生成的 define.xml',
+          action:'回头检查断链、OID 一致性，标出缺方法 / 注释 / 源数据等缺口',
+          output:'一份缺口报告——生成即暴露，不等递交后被退回',
+          note:'OID 是 define.xml 内部把变量、codelist、方法互相关联的"编号"。手写极易打错、漏连，这里全部由程序生成并自检。' },
+        { icon:'🔁', title:'迭代闭环', sub:'回到问询',
+          input:'自检报告中的缺口与新需求',
+          action:'带着问题回到"三层问询 / 修改确认"，重新落 YAML 并重编译',
+          output:'可追溯的闭环版本，逐轮逼近可递交状态',
+          note:'完成标准很简单：生成通过 ＋ 校验通过。' }
+      ];
+
+      var chart = document.getElementById('flowChart');
+      var detail = document.getElementById('flowDetail');
+      if (!chart || !detail) return;
+      var nodes = [];
+
+      function renderDetail(i){
+        var d = flowData[i];
+        detail.innerHTML =
+          '<h3><span>' + d.icon + '</span><span>' + d.title + '</span></h3>' +
+          '<div class="fd-row"><div class="fd-key">输入</div><div class="fd-val">' + d.input + '</div></div>' +
+          '<div class="fd-row"><div class="fd-key">动作</div><div class="fd-val">' + d.action + '</div></div>' +
+          '<div class="fd-row"><div class="fd-key">产出</div><div class="fd-val">' + d.output + '</div></div>' +
+          (d.note ? '<div class="fd-row"><div class="fd-key">要点</div><div class="fd-val fd-note">' + d.note + '</div></div>' : '');
+        nodes.forEach(function(n, k){ n.classList.toggle('active', k === i); });
+      }
+
+      flowData.forEach(function(d, i){
+        var node = document.createElement('div');
+        node.className = 'flow-node';
+        node.setAttribute('role', 'button');
+        node.setAttribute('tabindex', '0');
+        node.innerHTML = '<span class="fn-step">' + (i + 1) + '</span>' +
+          '<div class="fn-ico">' + d.icon + '</div>' +
+          '<div class="fn-title">' + d.title + '</div>' +
+          '<div class="fn-sub">' + d.sub + '</div>';
+        node.addEventListener('click', function(){ renderDetail(i); });
+        node.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); renderDetail(i); }
+        });
+        chart.appendChild(node);
+        nodes.push(node);
+        if (i < flowData.length - 1) {
+          var arrow = document.createElement('div');
+          arrow.className = 'flow-arrow';
+          arrow.textContent = (i === flowData.length - 2) ? '↺' : '→';
+          chart.appendChild(arrow);
+        }
+      });
+      renderDetail(0);
+    })();
+
+    // 练习环节：点击展开答案
+    (function(){
+      var quiz = [
+        { q:'Define-XML 到底是什么？一句话说清。',
+          a:'它是随临床数据一起递交的"数据说明书"，用标准 XML 描述每个数据集、每个变量的含义、来源和取值规则，让审评员看得懂你的数据。' },
+        { q:'AI 是直接把 define.xml 写出来的吗？',
+          a:'不是。AI 先理解、再问询、再帮你改对元数据；真正固化的是 YAML，define.xml 是由生成器"编译"出来的产物。' },
+        { q:'这次 AI 问询生成 define 的底层框架是哪个文件？',
+          a:'<code>build_define_v2.ipynb</code>。整条 6 步流水线（读配置 → 抽标准库 → 读项目材料 → 建各域 YAML → 聚合项目层 → 编译 + 自检）都跑在这个 notebook 里；AI 的工作是读懂它、问清规则、改对它读取的 YAML。' },
+        { q:'那 source-of-truth（真正的源）到底是谁？',
+          a:'是 YAML。改内容要改 YAML 再重编译，而不是手改 define.xml——手改 XML 会在下次生成时被覆盖。' },
+        { q:'三层问询为什么非要按"研究 → 共享 → 域"的顺序？',
+          a:'先定大边界再抠细节，避免返工；共享级先识别哪些codelist / 方法能跨域复用，域级才不用重复确认。' },
+        { q:'OID 和交叉引用需要人工维护吗？',
+          a:'不需要。编译时自动拼 OID、自动连引用，自检还会回头查断链——打错字、漏连的问题从根上消除。' },
+        { q:'自检报告里的"16 处缺口"是不是代表失败了？',
+          a:'不是失败，恰恰是价值所在：生成即暴露问题，属于闭环的一部分，带着这些缺口回到问询 / 修改补齐即可。' },
+        { q:'用了 AI，人是不是就不用把关了？',
+          a:'仍然要。研究口径、共享规则复用判断、变量与值级定稿、业务正确性背书，都由人负责——AI 提效，不替代责任。' },
+        { q:'为什么要拆成 acrf / methods / comments / codelists / datasets 这么多 YAML？',
+          a:'为了解耦：各模块独立进 Git，可按模块分支并行、责任到人、逐条 diff 审核，还能跨域复用、升版一处改处处生效。' }
+      ];
+
+      var grid = document.getElementById('quizGrid');
+      if (!grid) return;
+      quiz.forEach(function(item, i){
+        var card = document.createElement('div');
+        card.className = 'quiz-card';
+        card.innerHTML =
+          '<div class="quiz-q"><span class="badge">Q' + (i + 1) + '</span><span>' + item.q + '</span></div>' +
+          '<div class="quiz-a"><span class="ans-tag">参考答案：</span>' + item.a + '</div>' +
+          '<div class="quiz-hint">▸ 点击展开参考答案</div>';
+        card.addEventListener('click', function(){ card.classList.toggle('open'); });
+        grid.appendChild(card);
+      });
+    })();
+
+    // SPA：点顶部标签切换整块内容，仅显示当前页
+    (function(){
+      var links  = Array.prototype.slice.call(document.querySelectorAll('.deck-links a'));
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+      var prevBtn = document.getElementById('prevBtn');
+      var nextBtn = document.getElementById('nextBtn');
+      var counter = document.getElementById('counter');
+      var idx = 0;
+
+      function show(i){
+        if (i < 0) i = 0;
+        if (i > slides.length - 1) i = slides.length - 1;
+        idx = i;
+        slides.forEach(function(s, k){ s.classList.toggle('active', k === i); });
+        links.forEach(function(l, k){ l.classList.toggle('active', k === i); });
+        if (counter) counter.textContent = (i + 1) + ' / ' + slides.length;
+        if (prevBtn) prevBtn.disabled = (i === 0);
+        if (nextBtn) nextBtn.disabled = (i === slides.length - 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      links.forEach(function(a, i){
+        a.addEventListener('click', function(e){ e.preventDefault(); show(i); });
+      });
+      if (prevBtn) prevBtn.addEventListener('click', function(){ show(idx - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function(){ show(idx + 1); });
+
+      // 键盘：← → / PageUp PageDown 翻页
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') { show(idx + 1); }
+        else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { show(idx - 1); }
+      });
+
+      show(0);
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
