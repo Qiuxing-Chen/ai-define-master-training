@@ -47,6 +47,40 @@ AGEU:
   items:
   - value: 岁
     nci_code: C29848
+ARM:
+  name: 分组
+  data_type: text
+  type: enumerated
+  items:
+  - value: Treatment_A
+    extended: true
+  - value: Treatment_B
+    extended: true
+  - value: Treatment_C
+    extended: true
+  - value: Treatment_D
+    extended: true
+  - value: Treatment_F
+    extended: true
+  - value: Treatment_I
+    extended: true
+ARMCD:
+  name: 分组代码
+  data_type: text
+  type: enumerated
+  items:
+  - value: A
+    extended: true
+  - value: B
+    extended: true
+  - value: C
+    extended: true
+  - value: D
+    extended: true
+  - value: F
+    extended: true
+  - value: I
+    extended: true
 ARMNULRS:
   name: 未分组原因
   data_type: text
@@ -333,6 +367,19 @@ CV_UNIT:
   items:
   - value: '%'
     nci_code: C25613
+CXTRT:
+  name: 研究用药
+  data_type: text
+  type: enumerated
+  items:
+  - value: XYZ-1234
+    extended: true
+  - value: 对照药A
+    extended: true
+  - value: 对照药C
+    extended: true
+  - value: 注射用对照药A(特殊剂型)
+    extended: true
 CX_FRM:
   name: 剂型
   data_type: text
@@ -434,6 +481,13 @@ DOMAIN:
     nci_code: C49621
   - value: VS
     nci_code: C49622
+DRUGDICT:
+  name: 药物字典
+  data_type: text
+  type: external
+  dictionary: WHODRUG
+  version: GLOBALB3Mar23
+  href: https://who-umc.org/whodrug/whodrug-global/
 DSCAT:
   name: 受试者分布事件类别
   data_type: text
@@ -513,6 +567,16 @@ DTHRS:
   - value: 其他
     extended: true
   - value: 疾病进展
+    extended: true
+ECOG101OR:
+  name: ECOG原始评分结果
+  data_type: text
+  nci_code: C179943
+  type: enumerated
+  items:
+  - value: '0'
+    extended: true
+  - value: '1'
     extended: true
 ECOG101STR:
   name: ECOG评分结果
@@ -598,6 +662,15 @@ ELEMENT:
   - value: 筛选
     extended: true
   - value: 随访
+    extended: true
+ENTPT:
+  name: 结束时间的参照时点
+  data_type: text
+  type: enumerated
+  items:
+  - value: '2026-03-20'
+    extended: true
+  - value: 20MAR2026
     extended: true
 EPOCH:
   name: 时期
@@ -1453,6 +1526,17 @@ PCTPT:
     extended: true
   - value: 给药后5min
     extended: true
+PCTPTNUM:
+  name: 计划时点名称(N)
+  data_type: text
+  type: enumerated
+  items:
+  - value: '1.0'
+    extended: true
+  - value: '2.0'
+    extended: true
+  - value: '3.0'
+    extended: true
 PC_SUNIT:
   name: PC标准单位
   data_type: text
@@ -1633,6 +1717,23 @@ RACE:
   items:
   - value: 亚洲人
     nci_code: C41260
+REGIMEN:
+  name: 治疗方案
+  data_type: text
+  type: enumerated
+  items:
+  - value: XYZ-1234
+    extended: true
+  - value: 对照药A(21天周期D1D8D15)
+    extended: true
+  - value: 对照药A2(21天周期D1)
+    extended: true
+  - value: 对照药A2(21天周期D1D8)
+    extended: true
+  - value: 对照药A2(28天周期)
+    extended: true
+  - value: 对照药C
+    extended: true
 RPTEST:
   name: 生殖系统检查名称
   data_type: text

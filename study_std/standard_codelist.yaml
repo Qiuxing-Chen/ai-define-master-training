@@ -2899,6 +2899,16 @@ ECOG101OR:
     decode_cn: 死亡
     nci_code: C180254
     order: 6
+  - value_cn: '0'
+    value_en: '0'
+    decode_en: 0-Fully active, able to carry on all pre-disease performance without restriction
+    decode_cn: 0分-无症状，完全主动活动，及能够进行无限制的活动
+    order: 7
+  - value_cn: '1'
+    value_en: '1'
+    decode_en: 1-Restricted in physically strenuous activity but ambulatory and able to carry out work of a light or sedentary nature, e.g., light house work, office work
+    decode_cn: 1分-有症状，完全能行走，但重体力活动受限，能从事轻的或以坐为主的工作，如轻微家务、办公室工作
+    order: 8
 MBFTSDTL:
   name_en: Measurement, Test or Examination Detail
   name_cn: 测量，检测或检查详情
@@ -2969,6 +2979,36 @@ ARM:
     value_en: SHR-A1811 6.4mg/kg Q3W
     decode_en: SHR-A1811 6.4mg/kg Q3W
     decode_cn: SHR-A1811 6.4mg/kg Q3W
+  - value_cn: Treatment_A
+    value_en: Treatment_A
+    decode_en: Treatment_A
+    decode_cn: Treatment_A
+    order: 1
+  - value_cn: Treatment_B
+    value_en: Treatment_B
+    decode_en: Treatment_B
+    decode_cn: Treatment_B
+    order: 2
+  - value_cn: Treatment_C
+    value_en: Treatment_C
+    decode_en: Treatment_C
+    decode_cn: Treatment_C
+    order: 3
+  - value_cn: Treatment_D
+    value_en: Treatment_D
+    decode_en: Treatment_D
+    decode_cn: Treatment_D
+    order: 4
+  - value_cn: Treatment_F
+    value_en: Treatment_F
+    decode_en: Treatment_F
+    decode_cn: Treatment_F
+    order: 5
+  - value_cn: Treatment_I
+    value_en: Treatment_I
+    decode_en: Treatment_I
+    decode_cn: Treatment_I
+    order: 6
 ARMCD:
   name_en: Arm Code
   name_cn: 分组代码
@@ -3014,6 +3054,36 @@ ARMCD:
     value_en: SHR-A1811 6.4mg/kg Q3W
     decode_en: SHR-A1811 6.4mg/kg Q3W
     decode_cn: A1811
+  - value_cn: A
+    value_en: Treatment_A
+    decode_en: Treatment_A
+    decode_cn: A
+    order: 1
+  - value_cn: B
+    value_en: Treatment_B
+    decode_en: Treatment_B
+    decode_cn: B
+    order: 2
+  - value_cn: C
+    value_en: Treatment_C
+    decode_en: Treatment_C
+    decode_cn: C
+    order: 3
+  - value_cn: D
+    value_en: Treatment_D
+    decode_en: Treatment_D
+    decode_cn: D
+    order: 4
+  - value_cn: F
+    value_en: Treatment_F
+    decode_en: Treatment_F
+    decode_cn: F
+    order: 5
+  - value_cn: I
+    value_en: Treatment_I
+    decode_en: Treatment_I
+    decode_cn: I
+    order: 6
 DSRSFHR:
   name_en: HR and CDK4/6(EDC)
   name_cn: 分层因素(EDC)
@@ -3089,6 +3159,36 @@ REGIMEN:
     value_en: Paclitaxel(21 day cycle D1D8D15)
     decode_en: Paclitaxel(21 day cycle D1D8D15)
     decode_cn: 紫杉醇(21天周期D1D8D15)
+  - value_cn: XYZ-1234
+    value_en: XYZ-1234
+    decode_en: XYZ-1234
+    decode_cn: XYZ-1234
+    order: 1
+  - value_cn: 对照药A(21天周期D1D8D15)
+    value_en: 对照药A(21天周期D1D8D15)
+    decode_en: 对照药A(21天周期D1D8D15)
+    decode_cn: 对照药A(21天周期D1D8D15)
+    order: 2
+  - value_cn: 对照药A2(21天周期D1)
+    value_en: 对照药A2(21天周期D1)
+    decode_en: 对照药A2(21天周期D1)
+    decode_cn: 对照药A2(21天周期D1)
+    order: 3
+  - value_cn: 对照药A2(21天周期D1D8)
+    value_en: 对照药A2(21天周期D1D8)
+    decode_en: 对照药A2(21天周期D1D8)
+    decode_cn: 对照药A2(21天周期D1D8)
+    order: 4
+  - value_cn: 对照药A2(28天周期)
+    value_en: 对照药A2(28天周期)
+    decode_en: 对照药A2(28天周期)
+    decode_cn: 对照药A2(28天周期)
+    order: 5
+  - value_cn: 对照药C
+    value_en: 对照药C
+    decode_en: 对照药C
+    decode_cn: 对照药C
+    order: 6
 ELEMENT:
   name_en: Treatment Element
   name_cn: 元素描述
@@ -3241,6 +3341,26 @@ CXTRT:
     value_en: SHR-A1811
     decode_en: SHR-A1811
     decode_cn: SHR-A1811
+  - value_cn: XYZ-1234
+    value_en: XYZ-1234
+    decode_en: XYZ-1234
+    decode_cn: XYZ-1234
+    order: 1
+  - value_cn: 对照药A
+    value_en: 对照药A
+    decode_en: 对照药A
+    decode_cn: 对照药A
+    order: 2
+  - value_cn: 对照药C
+    value_en: 对照药C
+    decode_en: 对照药C
+    decode_cn: 对照药C
+    order: 3
+  - value_cn: 注射用对照药A(特殊剂型)
+    value_en: 注射用对照药A(特殊剂型)
+    decode_en: 注射用对照药A(特殊剂型)
+    decode_cn: 注射用对照药A(特殊剂型)
+    order: 4
 CX_UNIT:
   name_en: Exposure Unit
   name_cn: 药物暴露单位
@@ -4539,6 +4659,16 @@ ENTPT:
     value_en: LAST ALIVE DATE
     decode_en: LAST ALIVE DATE
     decode_cn: 末次生存日期
+  - value_cn: '2026-03-20'
+    value_en: '2026-03-20'
+    decode_en: '2026-03-20'
+    decode_cn: '2026-03-20'
+    order: 1
+  - value_cn: 20MAR2026
+    value_en: 20MAR2026
+    decode_en: 20MAR2026
+    decode_cn: 20MAR2026
+    order: 2
 PCSPECTY:
   name_en: PC Specimen Type
   name_cn: PC样本种类
@@ -5432,6 +5562,21 @@ PCTPTNUM:
     value_en: 5min Post Dose
     decode_en: '2'
     decode_cn: '2'
+  - value_cn: '1.0'
+    value_en: '1.0'
+    decode_en: '1.0'
+    decode_cn: '1.0'
+    order: 1
+  - value_cn: '2.0'
+    value_en: '2.0'
+    decode_en: '2.0'
+    decode_cn: '2.0'
+    order: 2
+  - value_cn: '3.0'
+    value_en: '3.0'
+    decode_en: '3.0'
+    decode_cn: '3.0'
+    order: 3
 TCMPARM:
   name_en: Time to Concomitant/Prior Medications Parameter Test Name
   name_cn: 合并用药时间参数名称

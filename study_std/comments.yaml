@@ -1,4 +1,4 @@
-# 项目级 comments (language=CN): 第一层=12 部门库 + 第二层=43 研究专属(domain yaml 自带 comment_text)。
+# 项目级 comments (language=CN): 第一层=17 部门库 + 第二层=43 研究专属(domain yaml 自带 comment_text)。
 AE.DICTNAME:
   description: aeeval='Sponsor';
 AE.DICTVER:
@@ -59,6 +59,8 @@ ENRTPT:
   description: '当事件仍在继续，设置为”仍持续“；
 
     当结束日期未知时，设置为”未知“.'
+ENTPT:
+  description: --ENTPT所参照时点的描述或ISO 8601格式的日期/时间。
 EPOCH.SCRN:
   description: 根据试验方案赋值为"筛选期"。
 EX.EXAENO:
@@ -99,16 +101,24 @@ LBSTRESU:
   page_refs: 1
 MEDDRA:
   description: 根据--TERM的值和MedDRA字典编码。
+NC:
+  description: 本研究未采集该变量。
 SE.DOMAIN:
   description: SE
 SPID:
   description: 原始数据库中的唯一记录标识符，用于RAW、SDTM、ADaM间的可追溯性。
+SS.VISITDY:
+  description: 基于人口学RFSTDTC的访视计划研究日。
+STAT:
+  description: 用于表示问题未询问、检查未执行、检查已执行但未获得结果，或记录已完成。
 SV.DOMAIN:
   description: SV
 SV.SVSTDTC:
   description: 同一访视下最早日期
 SV.VISITDY:
   description: 因盲态项目，VISITDY来自于TV_DUMMY
+TV.ARM:
+  description: 按方案，受试者在该访视时被分配的计划分组/治疗组描述。
 TV.ARMCD:
   description: 试验访视与分组无关，赋空值。
 VISIT:

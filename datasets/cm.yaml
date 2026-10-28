@@ -111,6 +111,7 @@ variables:
     order: 10
     mandatory: false
     origin: {type: Assigned, source: Sponsor}
+    codelist: DRUGDICT
     comment: WHODRUG
   CMCAT:
     label: 药物的类别
@@ -155,6 +156,7 @@ variables:
     order: 14
     mandatory: false
     origin: {type: Assigned, source: Sponsor}
+    codelist: DRUGDICT
     comment: WHODRUG
   CMCLASCD:
     label: 药物分类编码
@@ -163,6 +165,7 @@ variables:
     order: 15
     mandatory: false
     origin: {type: Assigned, source: Sponsor}
+    codelist: DRUGDICT
     comment: WHODRUG
   CMDOSE:
     label: 每次用药剂量

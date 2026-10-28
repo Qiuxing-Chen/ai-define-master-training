@@ -23,6 +23,14 @@ EPOCH:
   name: EPOCH的计算方式
   type: Computation
   description: 日期 >= SE.SESTDTC且日期 < SE.SEENDTC对应的SE.EPOCH。
+EXENDY:
+  name: EXENDY的计算方式
+  type: Computation
+  description: 暴露结束研究日：若EXENDTC不早于DM.RFSTDTC，则为EXENDTC - DM.RFSTDTC + 1；若EXENDTC早于DM.RFSTDTC，则为EXENDTC - DM.RFSTDTC。
+EXSTDY:
+  name: EXSTDY的计算方式
+  type: Computation
+  description: 暴露开始研究日：若EXSTDTC不早于DM.RFSTDTC，则为EXSTDTC - DM.RFSTDTC + 1；若EXSTDTC早于DM.RFSTDTC，则为EXSTDTC - DM.RFSTDTC。
 LBSTNRHI:
   name: LBSTNRHI的计算方式
   type: Computation

@@ -1,13 +1,13 @@
 # study.yaml —— 项目元数据，由 build_study_yaml cell 生成，之后手动维护。
-# 生成时间: 2026-10-12 20:53
+# 生成时间: 2026-10-23 19:58
 # 研究号: SHR-1234-III-301  CT版本: 2024-09-27  SDTM-IG: 3.3
 study:
   oid: SHR-1234-III-301
   name: SHR-1234-III-301
-  description: 三期肿瘤对照试验
+  description: DEMO 三期肿瘤对照试验(验证用临时值)
   protocol: SHR-1234-III-301
 file:
-  originator: '{{ORIGINATOR}}'
+  originator: DEMO Sponsor Co., Ltd. (验证用临时值)
   context: Submission
   odm_version: 1.3.2
 metadata_version:
@@ -36,16 +36,13 @@ documents:
   - leaf_id: ComplexAlgorithms
     href: complexalgorithms.pdf
     title: 复杂算法
-  - leaf_id: ReviewerGuide
-    href: csdrg.pdf
-    title: 临床研究数据审阅说明
 dictionaries:
 - codelist: CTCAE
   dictionary: CTCAE
   version: '5.0'
 - codelist: DRUGDICT
   dictionary: WHODRUG
-  version: '{{WHODRUG_VERSION}}'
+  version: GLOBALB3Mar23
 - codelist: ISO21090
   dictionary: ISO 21090 NullFlavor enumeration
   version: 2011-02
@@ -54,4 +51,4 @@ dictionaries:
   version: '2013-11-15'
 - codelist: MEDDRACT
   dictionary: MEDDRA
-  version: '{{MEDDRA_VERSION}}'
+  version: '28.0'

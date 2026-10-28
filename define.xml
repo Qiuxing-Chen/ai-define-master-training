@@ -3077,14 +3077,14 @@
         <CodeListRef CodeListOID="CL.DOMAIN" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TA.ARMCD" Name="ARMCD" DataType="text" Length="1" SASFieldName="ARMCD">
+      <ItemDef OID="IT.TA.ARMCD" Name="ARMCD" DataType="text" Length="5" SASFieldName="ARMCD">
         <Description>
           <TranslatedText xml:lang="zh">计划分组编码</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ARMCD" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TA.ARM" Name="ARM" DataType="text" Length="11" SASFieldName="ARM">
+      <ItemDef OID="IT.TA.ARM" Name="ARM" DataType="text" Length="15" SASFieldName="ARM">
         <Description>
           <TranslatedText xml:lang="zh">计划分组描述</TranslatedText>
         </Description>
@@ -3097,14 +3097,14 @@
         </Description>
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TA.ETCD" Name="ETCD" DataType="text" Length="5" SASFieldName="ETCD">
+      <ItemDef OID="IT.TA.ETCD" Name="ETCD" DataType="text" Length="8" SASFieldName="ETCD">
         <Description>
           <TranslatedText xml:lang="zh">元素编码</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ETCD" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TA.ELEMENT" Name="ELEMENT" DataType="text" Length="30" SASFieldName="ELEMENT">
+      <ItemDef OID="IT.TA.ELEMENT" Name="ELEMENT" DataType="text" Length="41" SASFieldName="ELEMENT">
         <Description>
           <TranslatedText xml:lang="zh">元素描述</TranslatedText>
         </Description>
@@ -3131,21 +3131,21 @@
         <CodeListRef CodeListOID="CL.DOMAIN" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TE.ETCD" Name="ETCD" DataType="text" Length="5" SASFieldName="ETCD">
+      <ItemDef OID="IT.TE.ETCD" Name="ETCD" DataType="text" Length="8" SASFieldName="ETCD">
         <Description>
           <TranslatedText xml:lang="zh">元素编码</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ETCD" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TE.ELEMENT" Name="ELEMENT" DataType="text" Length="30" SASFieldName="ELEMENT">
+      <ItemDef OID="IT.TE.ELEMENT" Name="ELEMENT" DataType="text" Length="41" SASFieldName="ELEMENT">
         <Description>
           <TranslatedText xml:lang="zh">元素描述</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ELEMENT" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TE.TESTRL" Name="TESTRL" DataType="text" Length="108" SASFieldName="TESTRL">
+      <ItemDef OID="IT.TE.TESTRL" Name="TESTRL" DataType="text" Length="107" SASFieldName="TESTRL">
         <Description>
           <TranslatedText xml:lang="zh">元素开始规则</TranslatedText>
         </Description>
@@ -3234,362 +3234,314 @@
         <CodeListRef CodeListOID="CL.TSPARM" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V1" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V1" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V2" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
-        <Description>
-          <TranslatedText xml:lang="zh">参数值</TranslatedText>
-        </Description>
-        <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
-        <def:Origin Type="Protocol" Source="Sponsor" />
-      </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V3" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V2" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V4" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
-        <Description>
-          <TranslatedText xml:lang="zh">参数值</TranslatedText>
-        </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
-        <def:Origin Type="Protocol" Source="Sponsor" />
-      </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V5" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
-        <Description>
-          <TranslatedText xml:lang="zh">参数值</TranslatedText>
-        </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
-        <def:Origin Type="Protocol" Source="Sponsor" />
-      </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V6" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
-        <Description>
-          <TranslatedText xml:lang="zh">参数值</TranslatedText>
-        </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
-        <def:Origin Type="Protocol" Source="Sponsor" />
-      </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V7" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
-        <Description>
-          <TranslatedText xml:lang="zh">参数值</TranslatedText>
-        </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
-        <def:Origin Type="Protocol" Source="Sponsor" />
-      </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V8" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
-        <Description>
-          <TranslatedText xml:lang="zh">参数值</TranslatedText>
-        </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
-        <def:Origin Type="Protocol" Source="Sponsor" />
-      </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V9" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V3" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V10" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V4" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
+        <Description>
+          <TranslatedText xml:lang="zh">参数值</TranslatedText>
+        </Description>
+        <def:Origin Type="Protocol" Source="Sponsor" />
+      </ItemDef>
+      <ItemDef OID="IT.TS.TSVAL.V5" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
+        <Description>
+          <TranslatedText xml:lang="zh">参数值</TranslatedText>
+        </Description>
+        <def:Origin Type="Protocol" Source="Sponsor" />
+      </ItemDef>
+      <ItemDef OID="IT.TS.TSVAL.V6" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
+        <Description>
+          <TranslatedText xml:lang="zh">参数值</TranslatedText>
+        </Description>
+        <def:Origin Type="Protocol" Source="Sponsor" />
+      </ItemDef>
+      <ItemDef OID="IT.TS.TSVAL.V7" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
+        <Description>
+          <TranslatedText xml:lang="zh">参数值</TranslatedText>
+        </Description>
+        <def:Origin Type="Protocol" Source="Sponsor" />
+      </ItemDef>
+      <ItemDef OID="IT.TS.TSVAL.V8" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
+        <Description>
+          <TranslatedText xml:lang="zh">参数值</TranslatedText>
+        </Description>
+        <def:Origin Type="Protocol" Source="Sponsor" />
+      </ItemDef>
+      <ItemDef OID="IT.TS.TSVAL.V9" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
+        <Description>
+          <TranslatedText xml:lang="zh">参数值</TranslatedText>
+        </Description>
+        <CodeListRef CodeListOID="CL.NY_N" />
+        <def:Origin Type="Protocol" Source="Sponsor" />
+      </ItemDef>
+      <ItemDef OID="IT.TS.TSVAL.V10" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ISO3166" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V11" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V11" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V12" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V12" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V13" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V13" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.INTMODEL" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V14" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V14" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.INTTYPE" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V15" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V15" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V16" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V16" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V17" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V17" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V18" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V18" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V19" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V19" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V20" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V20" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V21" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V21" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V22" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V22" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V23" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V23" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V24" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V24" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V25" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V25" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V26" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V26" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V27" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V27" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V28" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V28" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V29" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V29" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_N" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V30" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V30" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V31" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V31" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V32" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V32" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V33" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V33" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V34" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V34" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.SEXPOP" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V35" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V35" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V36" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V36" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V37" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V37" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V38" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V38" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V39" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V39" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.STYPE" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V40" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V40" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.TBLIND" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V41" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V41" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.TCNTRL" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V42" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V42" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V43" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V43" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V44" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V44" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.TINDTP" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V45" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V45" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V46" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V46" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.TPHASE" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V47" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V47" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL.V48" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL.V48" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.TTYPE" />
-        <def:ValueListRef ValueListOID="VL.TS.TSVAL" />
         <def:Origin Type="Protocol" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.TS.TSVAL" Name="TSVAL" DataType="text" Length="154" SASFieldName="TSVAL">
+      <ItemDef OID="IT.TS.TSVAL" Name="TSVAL" DataType="text" Length="155" SASFieldName="TSVAL">
         <Description>
           <TranslatedText xml:lang="zh">参数值</TranslatedText>
         </Description>
@@ -4064,14 +4016,14 @@
         </Description>
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.SE.ETCD" Name="ETCD" DataType="text" Length="5" SASFieldName="ETCD">
+      <ItemDef OID="IT.SE.ETCD" Name="ETCD" DataType="text" Length="8" SASFieldName="ETCD">
         <Description>
           <TranslatedText xml:lang="zh">元素编码</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ETCD" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.SE.ELEMENT" Name="ELEMENT" DataType="text" Length="28" SASFieldName="ELEMENT">
+      <ItemDef OID="IT.SE.ELEMENT" Name="ELEMENT" DataType="text" Length="41" SASFieldName="ELEMENT">
         <Description>
           <TranslatedText xml:lang="zh">元素描述</TranslatedText>
         </Description>
@@ -4095,14 +4047,12 @@
         <Description>
           <TranslatedText xml:lang="zh">元素开始日期/时间</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SE.SESTDTC" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SE.SESTDTC.V2" Name="SESTDTC" DataType="date" Length="None" SASFieldName="SESTDTC">
         <Description>
           <TranslatedText xml:lang="zh">元素开始日期/时间</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SE.SESTDTC" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SE.SESTDTC" Name="SESTDTC" DataType="date" Length="None" SASFieldName="SESTDTC" def:CommentOID="COM.NC">
@@ -4116,14 +4066,12 @@
         <Description>
           <TranslatedText xml:lang="zh">元素结束日期/时间</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SE.SEENDTC" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SE.SEENDTC.V2" Name="SEENDTC" DataType="date" Length="None" SASFieldName="SEENDTC">
         <Description>
           <TranslatedText xml:lang="zh">元素结束日期/时间</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SE.SEENDTC" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SE.SEENDTC" Name="SEENDTC" DataType="date" Length="None" SASFieldName="SEENDTC" def:CommentOID="COM.NC">
@@ -4528,7 +4476,7 @@
         </Description>
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.EC.ECTRT" Name="ECTRT" DataType="text" Length="33" SASFieldName="ECTRT">
+      <ItemDef OID="IT.EC.ECTRT" Name="ECTRT" DataType="text" Length="38" SASFieldName="ECTRT">
         <Description>
           <TranslatedText xml:lang="zh">治疗名称</TranslatedText>
         </Description>
@@ -4695,7 +4643,7 @@
         </Description>
         <def:Origin Type="Predecessor" />
       </ItemDef>
-      <ItemDef OID="IT.EX.EXTRT" Name="EXTRT" DataType="text" Length="33" SASFieldName="EXTRT" def:CommentOID="COM.EX.EXTRT">
+      <ItemDef OID="IT.EX.EXTRT" Name="EXTRT" DataType="text" Length="38" SASFieldName="EXTRT" def:CommentOID="COM.EX.EXTRT">
         <Description>
           <TranslatedText xml:lang="zh">治疗名称</TranslatedText>
         </Description>
@@ -5609,7 +5557,7 @@
         <CodeListRef CodeListOID="CL.DSCAT" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.DS.DSSCAT" Name="DSSCAT" DataType="text" Length="33" SASFieldName="DSSCAT">
+      <ItemDef OID="IT.DS.DSSCAT" Name="DSSCAT" DataType="text" Length="38" SASFieldName="DSSCAT">
         <Description>
           <TranslatedText xml:lang="zh">分布事件的子类</TranslatedText>
         </Description>
@@ -7862,7 +7810,6 @@
           <TranslatedText xml:lang="zh">评估简称</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ONCRTSCD" />
-        <def:ValueListRef ValueListOID="VL.RS.RSTESTCD" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSTESTCD.V2" Name="RSTESTCD" DataType="text" Length="8" SASFieldName="RSTESTCD">
@@ -7870,7 +7817,6 @@
           <TranslatedText xml:lang="zh">评估简称</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ECOG1TC" />
-        <def:ValueListRef ValueListOID="VL.RS.RSTESTCD" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSTESTCD" Name="RSTESTCD" DataType="text" Length="8" SASFieldName="RSTESTCD">
@@ -7885,7 +7831,6 @@
           <TranslatedText xml:lang="zh">评估名称</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ONCRTS" />
-        <def:ValueListRef ValueListOID="VL.RS.RSTEST" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSTEST.V2" Name="RSTEST" DataType="text" Length="24" SASFieldName="RSTEST">
@@ -7893,7 +7838,6 @@
           <TranslatedText xml:lang="zh">评估名称</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ECOG1TN" />
-        <def:ValueListRef ValueListOID="VL.RS.RSTEST" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSTEST" Name="RSTEST" DataType="text" Length="24" SASFieldName="RSTEST">
@@ -7908,7 +7852,6 @@
           <TranslatedText xml:lang="zh">评估的类别</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ONCRSCAT" />
-        <def:ValueListRef ValueListOID="VL.RS.RSCAT" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSCAT.V2" Name="RSCAT" DataType="text" Length="10" SASFieldName="RSCAT">
@@ -7916,7 +7859,6 @@
           <TranslatedText xml:lang="zh">评估的类别</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.CCCAT" />
-        <def:ValueListRef ValueListOID="VL.RS.RSCAT" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSCAT" Name="RSCAT" DataType="text" Length="10" SASFieldName="RSCAT">
@@ -7930,14 +7872,12 @@
         <Description>
           <TranslatedText xml:lang="zh">结果或发现-原始单位</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.RS.RSORRES" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSORRES.V2" Name="RSORRES" DataType="text" Length="13" SASFieldName="RSORRES">
         <Description>
           <TranslatedText xml:lang="zh">结果或发现-原始单位</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.RS.RSORRES" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSORRES.V3" Name="RSORRES" DataType="text" Length="13" SASFieldName="RSORRES">
@@ -7945,7 +7885,6 @@
           <TranslatedText xml:lang="zh">结果或发现-原始单位</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ECOG101OR" />
-        <def:ValueListRef ValueListOID="VL.RS.RSORRES" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSORRES" Name="RSORRES" DataType="text" Length="13" SASFieldName="RSORRES">
@@ -7964,7 +7903,6 @@
           <TranslatedText xml:lang="zh">字符型结果/发现-标准格式</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ONCRSR" />
-        <def:ValueListRef ValueListOID="VL.RS.RSSTRESC" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSSTRESC.V2" Name="RSSTRESC" DataType="text" Length="13" SASFieldName="RSSTRESC">
@@ -7972,7 +7910,6 @@
           <TranslatedText xml:lang="zh">字符型结果/发现-标准格式</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_NY" />
-        <def:ValueListRef ValueListOID="VL.RS.RSSTRESC" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSSTRESC.V3" Name="RSSTRESC" DataType="text" Length="13" SASFieldName="RSSTRESC">
@@ -7980,7 +7917,6 @@
           <TranslatedText xml:lang="zh">字符型结果/发现-标准格式</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ECOG101STR" />
-        <def:ValueListRef ValueListOID="VL.RS.RSSTRESC" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSSTRESC" Name="RSSTRESC" DataType="text" Length="13" SASFieldName="RSSTRESC">
@@ -8074,7 +8010,6 @@
         <Description>
           <TranslatedText xml:lang="zh">评估的日期/时间</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.RS.RSDTC" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.RS.RSDTC" Name="RSDTC" DataType="date" Length="None" SASFieldName="RSDTC">
@@ -8795,7 +8730,6 @@
           <TranslatedText xml:lang="zh">族裔采集</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ETHNICC" />
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="125" Type="PhysicalRef" />
@@ -8806,7 +8740,6 @@
         <Description>
           <TranslatedText xml:lang="zh">分层因素</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -8818,7 +8751,6 @@
           <TranslatedText xml:lang="zh">HR and CDK4/6</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.DSRSFHR" />
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -8830,7 +8762,6 @@
           <TranslatedText xml:lang="zh">化疗线数</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.DSRSFLNE" />
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -8841,7 +8772,6 @@
         <Description>
           <TranslatedText xml:lang="zh">随机号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="164" Type="PhysicalRef" />
@@ -8852,7 +8782,6 @@
         <Description>
           <TranslatedText xml:lang="zh">给药方案</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="164" Type="PhysicalRef" />
@@ -8864,7 +8793,6 @@
           <TranslatedText xml:lang="zh">治疗方案</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.REGIMEN" />
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -8875,14 +8803,12 @@
         <Description>
           <TranslatedText xml:lang="zh">随机系统分层因素</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDM.QVAL.V9" Name="QVAL" DataType="text" Length="110" SASFieldName="QVAL" def:CommentOID="COM.DM.TIVERS">
         <Description>
           <TranslatedText xml:lang="zh">方案版本</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -8893,7 +8819,6 @@
         <Description>
           <TranslatedText xml:lang="zh">之前的受试者标识符</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="125" Type="PhysicalRef" />
@@ -8905,7 +8830,6 @@
           <TranslatedText xml:lang="zh">其他族裔采集</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ETHNICC" />
-        <def:ValueListRef ValueListOID="VL.SUPPDM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="125" Type="PhysicalRef" />
@@ -8979,7 +8903,6 @@
           <TranslatedText xml:lang="zh">族裔采集</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ETHNICC" />
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="125" Type="PhysicalRef" />
@@ -8990,7 +8913,6 @@
         <Description>
           <TranslatedText xml:lang="zh">分层因素</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -9002,7 +8924,6 @@
           <TranslatedText xml:lang="zh">HR and CDK4/6</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.DSRSFHR" />
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -9014,7 +8935,6 @@
           <TranslatedText xml:lang="zh">化疗线数</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.DSRSFLNE" />
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -9025,7 +8945,6 @@
         <Description>
           <TranslatedText xml:lang="zh">随机号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="164" Type="PhysicalRef" />
@@ -9036,7 +8955,6 @@
         <Description>
           <TranslatedText xml:lang="zh">给药方案</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="164" Type="PhysicalRef" />
@@ -9048,7 +8966,6 @@
           <TranslatedText xml:lang="zh">治疗方案</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.REGIMEN" />
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -9059,14 +8976,12 @@
         <Description>
           <TranslatedText xml:lang="zh">随机系统分层因素</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDC.QVAL.V9" Name="QVAL" DataType="text" Length="110" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">方案版本</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -9077,7 +8992,6 @@
         <Description>
           <TranslatedText xml:lang="zh">之前的受试者标识符</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="125" Type="PhysicalRef" />
@@ -9089,7 +9003,6 @@
           <TranslatedText xml:lang="zh">其他族裔采集</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ETHNICC" />
-        <def:ValueListRef ValueListOID="VL.SUPPDC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="125" Type="PhysicalRef" />
@@ -9162,77 +9075,66 @@
         <Description>
           <TranslatedText xml:lang="zh">药物类别</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V2" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V3" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别1编码</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V4" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别2</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V5" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别2编码</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V6" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别3</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V7" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别3编码</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V8" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别4</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V9" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别4编码</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V10" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物类别编码</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V11" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">总疗程数</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9244,7 +9146,6 @@
           <TranslatedText xml:lang="zh">治疗结局</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.CMOUT" />
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9255,21 +9156,18 @@
         <Description>
           <TranslatedText xml:lang="zh">标准的药物名称编码</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V14" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">字典名称</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V15" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">字典版本</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V16" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
@@ -9277,7 +9175,6 @@
           <TranslatedText xml:lang="zh">用药原因</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.CMREAS" />
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="187" Type="PhysicalRef" />
@@ -9288,7 +9185,6 @@
         <Description>
           <TranslatedText xml:lang="zh">相关AE序号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="187" Type="PhysicalRef" />
@@ -9299,7 +9195,6 @@
         <Description>
           <TranslatedText xml:lang="zh">其他单位</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9313,7 +9208,6 @@
         <Description>
           <TranslatedText xml:lang="zh">其他途径</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="188" Type="PhysicalRef" />
@@ -9324,7 +9218,6 @@
         <Description>
           <TranslatedText xml:lang="zh">治疗周期</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="187" Type="PhysicalRef" />
@@ -9335,7 +9228,6 @@
         <Description>
           <TranslatedText xml:lang="zh">治疗时间</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="187" Type="PhysicalRef" />
@@ -9346,7 +9238,6 @@
         <Description>
           <TranslatedText xml:lang="zh">相关既往病史序号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="187" Type="PhysicalRef" />
@@ -9357,7 +9248,6 @@
         <Description>
           <TranslatedText xml:lang="zh">其他给药频率</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9371,7 +9261,6 @@
         <Description>
           <TranslatedText xml:lang="zh">进展日期</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9382,7 +9271,6 @@
         <Description>
           <TranslatedText xml:lang="zh">治疗线数</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9393,14 +9281,12 @@
         <Description>
           <TranslatedText xml:lang="zh">标准的药物名称1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCM.QVAL.V27" Name="QVAL" DataType="text" Length="142" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">其他结局</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9411,7 +9297,6 @@
         <Description>
           <TranslatedText xml:lang="zh">其他类型</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCM.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="133" Type="PhysicalRef" />
@@ -9484,28 +9369,24 @@
         <Description>
           <TranslatedText xml:lang="zh">计划剂量调整</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEC.QVAL.V2" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">计划剂量水平</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEC.QVAL.V3" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">计划剂量水平单位</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEC.QVAL.V4" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">输液是否中断</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9528,7 +9409,6 @@
         <Description>
           <TranslatedText xml:lang="zh">导致未给药/延迟给药的AE号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9552,7 +9432,6 @@
           <TranslatedText xml:lang="zh">是否按照计划给药</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.DSIADRS" />
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9575,28 +9454,24 @@
         <Description>
           <TranslatedText xml:lang="zh">未计划用药的其他原因</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEC.QVAL.V8" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">导致计划计量调整AE号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEC.QVAL.V9" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">未计划用药的其他原因1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEC.QVAL.V10" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">未计划用药的其他原因2</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEC.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEC.QVAL" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
@@ -9665,7 +9540,6 @@
         <Description>
           <TranslatedText xml:lang="zh">输液是否中断</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9688,7 +9562,6 @@
         <Description>
           <TranslatedText xml:lang="zh">计划剂量水平</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9705,14 +9578,12 @@
         <Description>
           <TranslatedText xml:lang="zh">计划剂量水平单位</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEX.QVAL.V4" Name="QVAL" DataType="text" Length="189" SASFieldName="QVAL" def:CommentOID="COM.EX.EXAENO">
         <Description>
           <TranslatedText xml:lang="zh">导致未给药/延迟给药的AE序号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9736,7 +9607,6 @@
           <TranslatedText xml:lang="zh">未给药/延迟给药原因</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ADJ" />
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9760,7 +9630,6 @@
           <TranslatedText xml:lang="zh">是否按照计划给药</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.DSIADRS" />
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="165" Type="PhysicalRef" />
@@ -9783,14 +9652,12 @@
         <Description>
           <TranslatedText xml:lang="zh">未计划用药的其他原因</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEX.QVAL.V8" Name="QVAL" DataType="text" Length="189" SASFieldName="QVAL" def:CommentOID="COM.EX.EXREASP1">
         <Description>
           <TranslatedText xml:lang="zh">未计划用药的其他原因1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEX.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEX.QVAL" Name="QVAL" DataType="text" Length="189" SASFieldName="QVAL">
@@ -9859,7 +9726,6 @@
         <Description>
           <TranslatedText xml:lang="zh">其他部位</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="131" Type="PhysicalRef" />
@@ -9886,7 +9752,6 @@
           <TranslatedText xml:lang="zh">肿瘤疗效</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.PRTORRES" />
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="132" Type="PhysicalRef" />
@@ -9900,21 +9765,18 @@
         <Description>
           <TranslatedText xml:lang="zh">影像学访视</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPR.QVAL.V4" Name="QVAL" DataType="text" Length="115" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">部位1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPR.QVAL.V5" Name="QVAL" DataType="text" Length="115" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">部位2</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPR.QVAL.V6" Name="QVAL" DataType="text" Length="115" SASFieldName="QVAL">
@@ -9922,7 +9784,6 @@
           <TranslatedText xml:lang="zh">治疗原因</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.PRREAS" />
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="189" Type="PhysicalRef" />
@@ -9933,7 +9794,6 @@
         <Description>
           <TranslatedText xml:lang="zh">相关AE序号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="189" Type="PhysicalRef" />
@@ -9945,7 +9805,6 @@
           <TranslatedText xml:lang="zh">是否针对靶病灶进行的放疗</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY_NY" />
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="196" Type="PhysicalRef" />
@@ -9959,14 +9818,12 @@
         <Description>
           <TranslatedText xml:lang="zh">诊疗操作名称1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPR.QVAL.V10" Name="QVAL" DataType="text" Length="115" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">其他适应症</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="131" Type="PhysicalRef" />
@@ -10041,141 +9898,129 @@
         </Description>
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QLABEL" Name="QLABEL" DataType="text" Length="36" SASFieldName="QLABEL">
+      <ItemDef OID="IT.SUPPAE.QLABEL" Name="QLABEL" DataType="text" Length="37" SASFieldName="QLABEL">
         <Description>
           <TranslatedText xml:lang="zh">修饰语变量标签</TranslatedText>
         </Description>
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V1" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V1" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">特殊AE事件</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.NY" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="186" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V2" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V2" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">治疗引起标帜</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Derived" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V3" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL" def:CommentOID="COM.AE.DICTNAME">
+      <ItemDef OID="IT.SUPPAE.QVAL.V3" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL" def:CommentOID="COM.AE.DICTNAME">
         <Description>
           <TranslatedText xml:lang="zh">字典名称</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V4" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL" def:CommentOID="COM.AE.DICTVER">
+      <ItemDef OID="IT.SUPPAE.QVAL.V4" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL" def:CommentOID="COM.AE.DICTVER">
         <Description>
           <TranslatedText xml:lang="zh">字典版本</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Sponsor" />
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V5" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V5" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">药物名称</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.REGIMEN" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="185" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V6" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V6" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
-          <TranslatedText xml:lang="zh">对ComparatorC治疗采取的措施</TranslatedText>
+          <TranslatedText xml:lang="zh">对Eribulin治疗采取的措施</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ACN" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="185" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V7" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V7" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
-          <TranslatedText xml:lang="zh">ComparatorC相关性相关性</TranslatedText>
+          <TranslatedText xml:lang="zh">Eribulin相关性相关性</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.AEREL" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="186" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V8" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V8" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
-          <TranslatedText xml:lang="zh">对ComparatorA治疗采取的措施</TranslatedText>
+          <TranslatedText xml:lang="zh">对Paclitaxel治疗采取的措施</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ACN" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="185" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V9" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V9" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
-          <TranslatedText xml:lang="zh">ComparatorA相关性</TranslatedText>
+          <TranslatedText xml:lang="zh">Paclitaxel相关性</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.AEREL" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="186" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V10" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V10" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
-          <TranslatedText xml:lang="zh">对Special Form治疗采取的措施</TranslatedText>
+          <TranslatedText xml:lang="zh">对Albumin Bound治疗采取的措施</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.ACN" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="185" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V11" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V11" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
-          <TranslatedText xml:lang="zh">Special Form相关性</TranslatedText>
+          <TranslatedText xml:lang="zh">Albumin Bound相关性</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.AEREL" />
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="186" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL.V12" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL.V12" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">其他重要严重医疗事件</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPAE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="186" Type="PhysicalRef" />
           </def:DocumentRef>
         </def:Origin>
       </ItemDef>
-      <ItemDef OID="IT.SUPPAE.QVAL" Name="QVAL" DataType="text" Length="39" SASFieldName="QVAL">
+      <ItemDef OID="IT.SUPPAE.QVAL" Name="QVAL" DataType="text" Length="41" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">数据值</TranslatedText>
         </Description>
@@ -10241,7 +10086,6 @@
         <Description>
           <TranslatedText xml:lang="zh">相关AE序号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="205" Type="PhysicalRef" />
@@ -10318,7 +10162,6 @@
           <TranslatedText xml:lang="zh">主要死亡原因</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.DTHRS" />
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="202" Type="PhysicalRef" />
@@ -10329,70 +10172,60 @@
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V3" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V4" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V5" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V6" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V7" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V8" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V9" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V10" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">分布事件报告术语</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDS.QVAL.V11" Name="QVAL" DataType="text" Length="198" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">死亡原因详述</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="202" Type="PhysicalRef" />
@@ -10465,21 +10298,18 @@
         <Description>
           <TranslatedText xml:lang="zh">方案偏离术语1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDV.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDV.QVAL.V2" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">方案偏离术语2</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDV.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDV.QVAL.V3" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">方案偏离术语3</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDV.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPDV.QVAL" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
@@ -10548,14 +10378,12 @@
         <Description>
           <TranslatedText xml:lang="zh">字典名称</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPMH.QVAL.V2" Name="QVAL" DataType="text" Length="15" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">字典版本</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Assigned" Source="Sponsor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPMH.QVAL.V3" Name="QVAL" DataType="text" Length="15" SASFieldName="QVAL">
@@ -10563,7 +10391,6 @@
           <TranslatedText xml:lang="zh">首次临床分期</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.MHCT" />
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="127" Type="PhysicalRef" />
@@ -10574,7 +10401,6 @@
         <Description>
           <TranslatedText xml:lang="zh">首次转移日期</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="127" Type="PhysicalRef" />
@@ -10586,7 +10412,6 @@
           <TranslatedText xml:lang="zh">首次组织学分级</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.MHHG" />
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="126" Type="PhysicalRef" />
@@ -10597,7 +10422,6 @@
         <Description>
           <TranslatedText xml:lang="zh">当前临床分期</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="127" Type="PhysicalRef" />
@@ -10608,7 +10432,6 @@
         <Description>
           <TranslatedText xml:lang="zh">最近转移日期</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="127" Type="PhysicalRef" />
@@ -10620,7 +10443,6 @@
           <TranslatedText xml:lang="zh">复发/转移情况</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.MHRM" />
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="127" Type="PhysicalRef" />
@@ -10632,7 +10454,6 @@
           <TranslatedText xml:lang="zh">TNM分期(M)</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.MHTNMUN" />
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="126" Type="PhysicalRef" />
@@ -10644,7 +10465,6 @@
           <TranslatedText xml:lang="zh">TNM分期(N)</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.MHTNMUN" />
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="126" Type="PhysicalRef" />
@@ -10656,7 +10476,6 @@
           <TranslatedText xml:lang="zh">TNM分期(T)</TranslatedText>
         </Description>
         <CodeListRef CodeListOID="CL.MHTNMUN" />
-        <def:ValueListRef ValueListOID="VL.SUPPMH.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="126" Type="PhysicalRef" />
@@ -10729,14 +10548,12 @@
         <Description>
           <TranslatedText xml:lang="zh">临床意义</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCV.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCV.QVAL.V2" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">异常描述</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCV.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="160" Type="PhysicalRef" />
@@ -10747,14 +10564,12 @@
         <Description>
           <TranslatedText xml:lang="zh">异常描述1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCV.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCV.QVAL.V4" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">异常描述2</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPCV.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPCV.QVAL" Name="QVAL" DataType="text" Length="200" SASFieldName="QVAL">
@@ -10823,7 +10638,6 @@
         <Description>
           <TranslatedText xml:lang="zh">其他死亡原因</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPDD.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="202" Type="PhysicalRef" />
@@ -10896,7 +10710,6 @@
         <Description>
           <TranslatedText xml:lang="zh">异常描述</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEG.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="156" Type="PhysicalRef" />
@@ -10916,7 +10729,6 @@
         <Description>
           <TranslatedText xml:lang="zh">异常描述1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPEG.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPEG.QVAL" Name="QVAL" DataType="text" Length="197" SASFieldName="QVAL">
@@ -10985,7 +10797,6 @@
         <Description>
           <TranslatedText xml:lang="zh">筛选时使用的方案版本号</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPIE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="163" Type="PhysicalRef" />
@@ -11058,7 +10869,6 @@
         <Description>
           <TranslatedText xml:lang="zh">稀释系数</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPC.QVAL" />
         <def:Origin Type="Collected" Source="Vendor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPC.QVAL" Name="QVAL" DataType="text" Length="2" SASFieldName="QVAL">
@@ -11127,21 +10937,18 @@
         <Description>
           <TranslatedText xml:lang="zh">字面检查结果1</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPE.QVAL.V2" Name="QVAL" DataType="text" Length="199" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">字面检查结果2</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPE.QVAL.V3" Name="QVAL" DataType="text" Length="199" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">字面检查结果3</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPPE.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPPE.QVAL" Name="QVAL" DataType="text" Length="199" SASFieldName="QVAL">
@@ -11271,21 +11078,18 @@
         <Description>
           <TranslatedText xml:lang="zh">原始访视(IRC)</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPRS.QVAL" />
         <def:Origin Type="Collected" Source="Vendor" />
       </ItemDef>
       <ItemDef OID="IT.SUPPRS.QVAL.V2" Name="QVAL" DataType="text" Length="98" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">更新评估原因</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPRS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPRS.QVAL.V3" Name="QVAL" DataType="text" Length="98" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">研究者肿瘤评估日期</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPRS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="183" Type="PhysicalRef" />
@@ -11296,7 +11100,6 @@
         <Description>
           <TranslatedText xml:lang="zh">阅片结果说明</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPRS.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPRS.QVAL" Name="QVAL" DataType="text" Length="98" SASFieldName="QVAL">
@@ -11365,14 +11168,12 @@
         <Description>
           <TranslatedText xml:lang="zh">原始访视</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPTR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator" />
       </ItemDef>
       <ItemDef OID="IT.SUPPTR.QVAL.V2" Name="QVAL" DataType="text" Length="17" SASFieldName="QVAL">
         <Description>
           <TranslatedText xml:lang="zh">是否本中心检查</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPTR.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="176" Type="PhysicalRef" />
@@ -11445,7 +11246,6 @@
         <Description>
           <TranslatedText xml:lang="zh">部位描述</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPTU.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="177" Type="PhysicalRef" />
@@ -11462,7 +11262,6 @@
         <Description>
           <TranslatedText xml:lang="zh">是否为本中心检查</TranslatedText>
         </Description>
-        <def:ValueListRef ValueListOID="VL.SUPPTU.QVAL" />
         <def:Origin Type="Collected" Source="Investigator">
           <def:DocumentRef leafID="Annotated CRF">
             <def:PDFPageRef PageRefs="176" Type="PhysicalRef" />
@@ -11522,6 +11321,12 @@
           <Alias Name="C29848" Context="nci:ExtCodeID" />
         </EnumeratedItem>
         <Alias Name="C66781" Context="nci:ExtCodeID" />
+      </CodeList>
+      <CodeList OID="CL.ARM" Name="分组" DataType="text" def:StandardOID="SDTM-CT">
+        <EnumeratedItem CodedValue="Gemcitabine TIM" def:ExtendedValue="Yes" />
+      </CodeList>
+      <CodeList OID="CL.ARMCD" Name="分组代码" DataType="text" def:StandardOID="SDTM-CT">
+        <EnumeratedItem CodedValue="GEM28" def:ExtendedValue="Yes" />
       </CodeList>
       <CodeList OID="CL.ARMNULRS" Name="未分组原因" DataType="text" def:StandardOID="SDTM-CT">
         <EnumeratedItem CodedValue="已分组，未治疗">
@@ -11770,6 +11575,12 @@
         </EnumeratedItem>
         <Alias Name="C71620" Context="nci:ExtCodeID" />
       </CodeList>
+      <CodeList OID="CL.CXTRT" Name="研究用药" DataType="text" def:StandardOID="SDTM-CT">
+        <EnumeratedItem CodedValue="SHR-A1811" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="注射用紫杉醇(白蛋白结合型)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="紫杉醇" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="艾立布林" def:ExtendedValue="Yes" />
+      </CodeList>
       <CodeList OID="CL.CX_FRM" Name="剂型" DataType="text" def:StandardOID="SDTM-CT">
         <EnumeratedItem CodedValue="注射液" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="粉针剂" def:ExtendedValue="Yes" />
@@ -11907,12 +11718,16 @@
         <EnumeratedItem CodedValue="化疗线(1)" def:ExtendedValue="Yes" />
       </CodeList>
       <CodeList OID="CL.DSSCAT" Name="受试者分布事件子类" DataType="text" def:StandardOID="SDTM-CT">
+        <EnumeratedItem CodedValue="SHR-A1811" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="入组" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="注射用紫杉醇(白蛋白结合型)" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="疾病进展后" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="研究参与">
           <Alias Name="C170569" Context="nci:ExtCodeID" />
         </EnumeratedItem>
         <EnumeratedItem CodedValue="研究结束" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="紫杉醇" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="艾立布林" def:ExtendedValue="Yes" />
         <Alias Name="C170443" Context="nci:ExtCodeID" />
       </CodeList>
       <CodeList OID="CL.DTHDX" Name="死亡诊断和细节名称" DataType="text" def:StandardOID="SDTM-CT">
@@ -11993,7 +11808,17 @@
         <Alias Name="C71620" Context="nci:ExtCodeID" />
       </CodeList>
       <CodeList OID="CL.ELEMENT" Name="元素描述" DataType="text" def:StandardOID="SDTM-CT">
+        <EnumeratedItem CodedValue="SHR-A1811" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="卡培他滨" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="吉西他滨(21天周期)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="吉西他滨(28天周期)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="白蛋白结合紫杉醇(21天周期D1)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="白蛋白结合紫杉醇(21天周期D1D8)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="白蛋白结合紫杉醇(28天周期)" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="筛选" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="紫杉醇(21天周期)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="紫杉醇(21天周期D1D8D15)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="艾立布林" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="随访" def:ExtendedValue="Yes" />
       </CodeList>
       <CodeList OID="CL.EPOCH" Name="时期" DataType="text" def:StandardOID="SDTM-CT">
@@ -12009,7 +11834,17 @@
         <Alias Name="C99079" Context="nci:ExtCodeID" />
       </CodeList>
       <CodeList OID="CL.ETCD" Name="元素编码" DataType="text" def:StandardOID="SDTM-CT">
+        <EnumeratedItem CodedValue="A1811" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="AP21D1" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="AP21D1D8" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="AP28" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="CAPE" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="ERIB" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="FU" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="GEM21" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="GEM28" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="PA21" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="PA7" def:ExtendedValue="Yes" />
         <EnumeratedItem CodedValue="SCRN" def:ExtendedValue="Yes" />
       </CodeList>
       <CodeList OID="CL.ETHNICC" Name="收集族群" DataType="text" def:StandardOID="SDTM-CT">
@@ -12857,6 +12692,14 @@
           <Alias Name="C41260" Context="nci:ExtCodeID" />
         </EnumeratedItem>
         <Alias Name="C74457" Context="nci:ExtCodeID" />
+      </CodeList>
+      <CodeList OID="CL.REGIMEN" Name="治疗方案" DataType="text" def:StandardOID="SDTM-CT">
+        <EnumeratedItem CodedValue="SHR-A1811" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="白蛋白结合紫杉醇(21天周期D1)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="白蛋白结合紫杉醇(21天周期D1D8)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="白蛋白结合紫杉醇(28天周期)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="紫杉醇(21天周期D1D8D15)" def:ExtendedValue="Yes" />
+        <EnumeratedItem CodedValue="艾立布林" def:ExtendedValue="Yes" />
       </CodeList>
       <CodeList OID="CL.RPTEST" Name="生殖系统检查名称" DataType="text" def:StandardOID="SDTM-CT">
         <EnumeratedItem CodedValue="生育能力">

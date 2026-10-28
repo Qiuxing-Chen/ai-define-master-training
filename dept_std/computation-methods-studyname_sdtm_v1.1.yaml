@@ -63,6 +63,18 @@ EPOCH:
   type: Computation
   description_en: SE.EPOCH where date >= SE.SESTDTC and date < SE.SEENDTC.
   description_cn: 日期 >= SE.SESTDTC且日期 < SE.SEENDTC对应的SE.EPOCH。
+EXENDY:
+  name_en: Algorithm to derive EXENDY
+  name_cn: EXENDY的计算方式
+  type: Computation
+  description_en: Study day of exposure end, derived as EXENDTC - DM.RFSTDTC + 1 if EXENDTC is on or after DM.RFSTDTC; EXENDTC - DM.RFSTDTC if EXENDTC precedes DM.RFSTDTC.
+  description_cn: 暴露结束研究日：若EXENDTC不早于DM.RFSTDTC，则为EXENDTC - DM.RFSTDTC + 1；若EXENDTC早于DM.RFSTDTC，则为EXENDTC - DM.RFSTDTC。
+EXSTDY:
+  name_en: Algorithm to derive EXSTDY
+  name_cn: EXSTDY的计算方式
+  type: Computation
+  description_en: Study day of exposure start, derived as EXSTDTC - DM.RFSTDTC + 1 if EXSTDTC is on or after DM.RFSTDTC; EXSTDTC - DM.RFSTDTC if EXSTDTC precedes DM.RFSTDTC.
+  description_cn: 暴露开始研究日：若EXSTDTC不早于DM.RFSTDTC，则为EXSTDTC - DM.RFSTDTC + 1；若EXSTDTC早于DM.RFSTDTC，则为EXSTDTC - DM.RFSTDTC。
 IEORRES:
   name_en: Algorithm to derive IEORRES
   name_cn: IEORRES的计算方式

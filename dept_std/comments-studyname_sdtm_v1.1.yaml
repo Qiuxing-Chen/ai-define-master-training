@@ -31,6 +31,9 @@ ENRTPT:
   description_cn: '当事件仍在继续，设置为”仍持续“；
 
     当结束日期未知时，设置为”未知“.'
+ENTPT:
+  description_en: Description or date/time in ISO 8601 character format of the reference point referenced by --ENTPT.
+  description_cn: --ENTPT所参照时点的描述或ISO 8601格式的日期/时间。
 EPOCH.SCRN:
   description_en: Set to "SCREENING" based on the study protocol.
   description_cn: 根据试验方案赋值为"筛选期"。
@@ -52,6 +55,9 @@ LBSTRESU:
 MEDDRA:
   description_en: Coding based on --TERM and MedDRA.
   description_cn: 根据--TERM的值和MedDRA字典编码。
+NC:
+  description_en: Variable was not collected for this study.
+  description_cn: 本研究未采集该变量。
 ND:
   description_en: No data was collected.
   description_cn: 未收集到数据。
@@ -69,9 +75,18 @@ SDTMIGAP:
 SPID:
   description_en: Unique record identifier from the raw database. Traceability between RAW, SDTM, and ADaM.
   description_cn: 原始数据库中的唯一记录标识符，用于RAW、SDTM、ADaM间的可追溯性。
+SS.VISITDY:
+  description_en: Planned study day of the visit based upon RFSTDTC in Demographics.
+  description_cn: 基于人口学RFSTDTC的访视计划研究日。
+STAT:
+  description_en: Used to indicate that a question was not asked or a test was not done, or a test was done but no answer was obtained, or the record is complete.
+  description_cn: 用于表示问题未询问、检查未执行、检查已执行但未获得结果，或记录已完成。
 STRTPT:
   description_en: Set to "UNKNOWN" if start date is unknown.
   description_cn: 当开始日期未知时，设置为”未知“
+TV.ARM:
+  description_en: Description of the planned arm or treatment group assigned to the subject at the visit, per protocol.
+  description_cn: 按方案，受试者在该访视时被分配的计划分组/治疗组描述。
 TV.ARMCD:
   description_en: The timing of visits does not depend on which arm a subject is in, so ARMCD is null.
   description_cn: 试验访视与分组无关，赋空值。

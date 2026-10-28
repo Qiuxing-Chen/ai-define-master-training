@@ -192,6 +192,7 @@ variables:
       source: Investigator
       crf_pages:
       - '183'
+      - '184'
     value_list:
     - where:
       - variable: RSTESTCD
